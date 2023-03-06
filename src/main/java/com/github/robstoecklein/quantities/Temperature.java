@@ -1,30 +1,29 @@
 package com.github.robstoecklein.quantities;
 
-import com.github.robstoecklein.units.temperature.CelsiusUnits;
-import com.github.robstoecklein.units.temperature.FahrenheitUnits;
-import com.github.robstoecklein.units.temperature.TemperatureUnits;
+import com.github.robstoecklein.units.TemperatureUnits.Celsius;
+import com.github.robstoecklein.units.TemperatureUnits.Fahrenheit;
+import com.github.robstoecklein.units.TemperatureUnits.Kelvin;
+import com.github.robstoecklein.units.TemperatureUnits;
 
 public class Temperature extends Quantity {
 
-    public Temperature(Double temperature, TemperatureUnits units) {
-        super(temperature, units);
+    //@formatter:off
+    public static final Celsius    celsius    = new Celsius();
+    public static final Fahrenheit fahrenheit = new Fahrenheit();
+    public static final Kelvin     kelvin     = new Kelvin();
+    //@formatter:on
+
+    public Temperature(Double val, TemperatureUnits units) {
+        super(val, units);
     }
 
-    public static Temperature inFahrenheit(Double temperature) {
-        return new Temperature(temperature, new FahrenheitUnits());
-    }
+    //@formatter:off
+    public static Temperature inFahrenheit(Double val) { return new Temperature(val, fahrenheit); }
+    public static Temperature inCelsius   (Double val) { return new Temperature(val, celsius);    }
+    //@formatter:on
 
-    public static Temperature inCelsius(Double temperature) {
-        return new Temperature(temperature, new CelsiusUnits());
-    }
-
-    public Temperature toFahrenheit() {
-        FahrenheitUnits fahrenheitUnit = new FahrenheitUnits();
-        return new Temperature(units.convert(value, fahrenheitUnit), fahrenheitUnit);
-    }
-
-    public Temperature toCelsius() {
-        CelsiusUnits celsiusUnit = new CelsiusUnits();
-        return new Temperature(units.convert(value, celsiusUnit), celsiusUnit);
-    }
+    //@formatter:off
+    public Temperature toFahrenheit() { return new Temperature(units.convert(value, fahrenheit), fahrenheit); }
+    public Temperature toCelsius()    { return new Temperature(units.convert(value, celsius),    celsius);    }
+    //@formatter:on
 }

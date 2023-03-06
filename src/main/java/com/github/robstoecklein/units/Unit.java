@@ -10,25 +10,31 @@ import lombok.ToString;
 public abstract class Unit {
 
     private final String name;
+    private final String plural;
+    private final String abbr;
     private final double scale;
     private final double offset;
     private final int exponent;
+    private final boolean isStandard;
 
-    public Unit(String name, double scale, double offset) {
+    public Unit(String name, String plural, String abbr, double scale, double offset, boolean isStandard) {
         this.name = name;
+        this.plural = plural;
+        this.abbr = abbr;
         this.scale = scale;
         this.offset = offset;
         this.exponent = 0;
+        this.isStandard = isStandard;
     }
 
     /**
      * Converts from this unit to standard kOS units.
      *
-     * @param val the value in the current unit to convert to standard unit
+     * @param value the value in the current unit to convert to standard unit
      * @return value in standard kOS units
      */
-    public double toStandard(double val) {
-        return (val - offset) / scale;
+    public double toStandard(double value) {
+        return (value - offset) / scale;
     }
 
     /**

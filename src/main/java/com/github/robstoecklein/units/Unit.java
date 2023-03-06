@@ -17,13 +17,13 @@ public abstract class Unit {
     private final int exponent;
     private final boolean isStandard;
 
-    public Unit(String name, String plural, String abbr, double scale, double offset, boolean isStandard) {
+    public Unit(String name, String plural, String abbr, double scale, double offset, int exponent, boolean isStandard) {
         this.name = name;
         this.plural = plural;
         this.abbr = abbr;
         this.scale = scale;
         this.offset = offset;
-        this.exponent = 0;
+        this.exponent = exponent;
         this.isStandard = isStandard;
     }
 

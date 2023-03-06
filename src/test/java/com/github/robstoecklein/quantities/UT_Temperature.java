@@ -26,4 +26,15 @@ class UT_Temperature {
         assertThat(Temperature.inCelsius( 99.9).toCelsius()   .getValue(), equalTo( 99.9));
         //@formatter:on
     }
+
+    @Test
+    void verify_inKelvin_method() {
+        //@formatter:off
+        assertThat(Temperature.inKelvin(  0.0).toCelsius()   .getValue(), equalTo(-273.15));
+        assertThat(Temperature.inKelvin(  0.0).toFahrenheit().getValue(), equalTo(-459.66999999999996));
+        assertThat(Temperature.inKelvin(678.9).toCelsius()   .getValue(), equalTo(405.75));
+        assertThat(Temperature.inKelvin(678.9).toFahrenheit().getValue(), equalTo(762.35));
+        assertThat(Temperature.inKelvin( 99.9).toKelvin()    .getValue(), equalTo(99.9));
+        //@formatter:on
+    }
 }

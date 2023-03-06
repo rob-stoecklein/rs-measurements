@@ -3,7 +3,7 @@ package com.github.robstoecklein.units;
 public abstract class TemperatureUnits extends Unit {
 
     public TemperatureUnits(String name, String plural, String abbr, double scale, double offset, boolean isStandard) {
-        super(name, plural, abbr, scale, offset, isStandard);
+        super(name, plural, abbr, scale, offset, 0, isStandard);
     }
 
     public static class Celsius extends TemperatureUnits {
@@ -20,7 +20,7 @@ public abstract class TemperatureUnits extends Unit {
 
     public static class Kelvin extends TemperatureUnits {
         public Kelvin() {
-            super("Kelvin", "", "k", 0.0, 0.0, false);
+            super("Kelvin", "", "k", 1.0, 273.15, false);
         }
     }
 }

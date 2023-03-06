@@ -3,7 +3,7 @@ package com.github.robstoecklein.units;
 public abstract class LengthUnits extends Unit {
 
     public LengthUnits(String name, String plural, String abbr, double scale, boolean isStandard) {
-        super(name, plural, abbr, scale, 0.0, 0, isStandard);
+        super(MEASURE_LENGTH, name, plural, abbr, scale, 0.0, 0, isStandard);
     }
 
     public static class Inches extends LengthUnits {

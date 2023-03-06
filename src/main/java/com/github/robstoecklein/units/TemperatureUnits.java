@@ -3,7 +3,7 @@ package com.github.robstoecklein.units;
 public abstract class TemperatureUnits extends Unit {
 
     public TemperatureUnits(String name, String plural, String abbr, double scale, double offset, boolean isStandard) {
-        super(name, plural, abbr, scale, offset, 0, isStandard);
+        super(MEASURE_TEMPERATURE, name, plural, abbr, scale, offset, 0, isStandard);
     }
 
     public static class Celsius extends TemperatureUnits {

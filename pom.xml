@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    @project: com.tccc.kos.sdk:parent
+    @bucket:  git@github.com:The-Coca-Cola-Company/kos_sdk.git
+    @author:  Rob Stoecklein
+    @version: 2023-03-01
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====== Basics =============================================================== -->
+
+    <groupId>com.github.rob-stoecklein</groupId>
+    <artifactId>j-units</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <name>Java Units</name>
+
+    <!-- ====== Properties =========================================================== -->
+
+    <properties>
+        <company.name>TCCC</company.name>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- https://maven.apache.org/plugins/maven-antrun-plugin/ -->
+        <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-assembly-plugin/ -->
+        <maven-assembly-plugin.version>3.5.0</maven-assembly-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-clean-plugin/ -->
+        <maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-compiler-plugin/ -->
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+        <maven-dependency-plugin.version>3.5.0</maven-dependency-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-deploy-plugin/ -->
+        <maven-deploy-plugin.version>3.1.0</maven-deploy-plugin.version>
+        <!-- https://maven.apache.org/enforcer/maven-enforcer-plugin/ -->
+        <maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
+        <!-- https://www.mojohaus.org/exec-maven-plugin/ -->
+        <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-install-plugin/ -->
+        <maven-install-plugin.version>3.1.0</maven-install-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-jar-plugin/ -->
+        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-javadoc-plugin/ -->
+        <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
+        <!-- https://anthonywhitford.com/lombok.maven/lombok-maven-plugin/ -->
+        <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
+        <!-- https://maven.apache.org/plugin-tools/maven-plugin-plugin/ -->
+        <maven-plugin-plugin.version>3.7.1</maven-plugin-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-project-info-reports-plugin/ -->
+        <maven-project-info-reports-plugin.version>3.4.2</maven-project-info-reports-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-release-plugin -->
+        <maven-release-plugin.version>3.0.0-M7</maven-release-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-resources-plugin/ -->
+        <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-shade-plugin/ -->
+        <maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
+        <!-- https://maven.apache.org/plugins/maven-site-plugin/ -->
+        <maven-site-plugin.version>4.0.0-M5</maven-site-plugin.version>
+        <!-- https://maven.apache.org/surefire/maven-surefire-plugin/ -->
+        <maven-surefire-plugin.version>3.0.0-M9</maven-surefire-plugin.version>
+
+        <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
+        <hamcrest.version>2.2</hamcrest.version>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <junit-jupiter.version>5.9.2</junit-jupiter.version>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <lombok.version>1.18.24</lombok.version>
+    </properties>
+
+    <!-- ====== Dependencies ========================================================= -->
+
+    <dependencies>
+        <!-- Hamcrest testing framework -->
+        <!-- http://hamcrest.org/JavaHamcrest/ -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit testing platform -->
+        <!-- https://junit.org/junit5/ -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Lombok: for @Data, @Slf4j, and other boilerplate-reducing annotations -->
+        <!-- https://www.projectlombok.org/ -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

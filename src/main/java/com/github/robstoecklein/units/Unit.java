@@ -48,8 +48,8 @@ public abstract class Unit {
      * @param value the value in the current unit to convert to standard unit
      * @return value in standard kOS units
      */
-    public double toStandard(double value) {
-        return (value - offset) / scale;
+    public Double toStandard(Double value) {
+        return (value != null) ? (value - offset) / scale : null;
     }
 
     /**
@@ -58,8 +58,8 @@ public abstract class Unit {
      * @param value the value in standard units to convert to this unit
      * @return value in {@code this} unit
      */
-    public double fromStandard(double value) {
-        return (value * scale) + offset;
+    public Double fromStandard(Double value) {
+        return (value != null) ? (value * scale) + offset : null;
     }
 
     /**
@@ -69,13 +69,13 @@ public abstract class Unit {
      * @param value the value in this unit
      * @param unit  the target unit to convert to
      */
-    public double convert(double value, Unit unit) {
+    public Double convert(Double value, Unit unit) {
         if (!unit.measure.equals(measure)) {
             throw new IllegalArgumentException("Incompatible measure conversion");
         }
 
         // Convert the given value to standard units:
-        double stdVal = toStandard(value);
+        Double stdVal = toStandard(value);
 
         // Convert the standard value to target units:
         return unit.fromStandard(stdVal);

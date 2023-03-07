@@ -1,4 +1,6 @@
-package com.github.robstoecklein.units;
+package com.github.robstoecklein.quantities.temperature;
+
+import com.github.robstoecklein.units.Unit;
 
 public abstract class TemperatureUnits extends Unit {
 

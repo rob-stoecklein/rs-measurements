@@ -1,11 +1,11 @@
-package com.github.robstoecklein.quantities;
+package com.github.robstoecklein.quantities.length;
 
-import com.github.robstoecklein.units.LengthUnits.Feet;
-import com.github.robstoecklein.units.LengthUnits.Inches;
-import com.github.robstoecklein.units.LengthUnits;
-import com.github.robstoecklein.units.LengthUnits.Meters;
-import com.github.robstoecklein.units.LengthUnits.Miles;
-import com.github.robstoecklein.units.LengthUnits.Yards;
+import com.github.robstoecklein.quantities.Quantity;
+import com.github.robstoecklein.quantities.length.LengthUnits.Feet;
+import com.github.robstoecklein.quantities.length.LengthUnits.Inches;
+import com.github.robstoecklein.quantities.length.LengthUnits.Meters;
+import com.github.robstoecklein.quantities.length.LengthUnits.Miles;
+import com.github.robstoecklein.quantities.length.LengthUnits.Yards;
 
 public final class Length extends Quantity {
 
@@ -17,16 +17,16 @@ public final class Length extends Quantity {
     public static final Miles  miles  = new Miles();
     //@formatter:on
 
-    private Length(Double value, LengthUnits units) {
+    private Length(Number value, LengthUnits units) {
         super(value, units);
     }
 
     //@formatter:off
-    public static Length inInches(Double val) { return new Length(val, inches); }
-    public static Length inFeet  (Double val) { return new Length(val, feet);   }
-    public static Length inYards (Double val) { return new Length(val, yards);  }
-    public static Length inMeters(Double val) { return new Length(val, meters); }
-    public static Length inMiles (Double val) { return new Length(val, miles);  }
+    public static Length inInches(Number val) { return new Length(val, inches); }
+    public static Length inFeet  (Number val) { return new Length(val, feet);   }
+    public static Length inYards (Number val) { return new Length(val, yards);  }
+    public static Length inMeters(Number val) { return new Length(val, meters); }
+    public static Length inMiles (Number val) { return new Length(val, miles);  }
     //@formatter:on
 
     //@formatter:off

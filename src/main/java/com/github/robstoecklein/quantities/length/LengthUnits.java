@@ -1,4 +1,7 @@
-package com.github.robstoecklein.units;
+package com.github.robstoecklein.quantities.length;
+
+import com.github.robstoecklein.units.MathConstants;
+import com.github.robstoecklein.units.Unit;
 
 public abstract class LengthUnits extends Unit {
 

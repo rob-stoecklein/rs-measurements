@@ -1,9 +1,9 @@
-package com.github.robstoecklein.quantities;
+package com.github.robstoecklein.quantities.temperature;
 
-import com.github.robstoecklein.units.TemperatureUnits;
-import com.github.robstoecklein.units.TemperatureUnits.Celsius;
-import com.github.robstoecklein.units.TemperatureUnits.Fahrenheit;
-import com.github.robstoecklein.units.TemperatureUnits.Kelvin;
+import com.github.robstoecklein.quantities.Quantity;
+import com.github.robstoecklein.quantities.temperature.TemperatureUnits.Celsius;
+import com.github.robstoecklein.quantities.temperature.TemperatureUnits.Fahrenheit;
+import com.github.robstoecklein.quantities.temperature.TemperatureUnits.Kelvin;
 
 public class Temperature extends Quantity {
 
@@ -13,14 +13,14 @@ public class Temperature extends Quantity {
     public static final Kelvin     kelvin     = new Kelvin();
     //@formatter:on
 
-    public Temperature(Double val, TemperatureUnits units) {
+    public Temperature(Number val, TemperatureUnits units) {
         super(val, units);
     }
 
     //@formatter:off
-    public static Temperature inCelsius   (Double val) { return new Temperature(val, celsius);    }
-    public static Temperature inFahrenheit(Double val) { return new Temperature(val, fahrenheit); }
-    public static Temperature inKelvin    (Double val) { return new Temperature(val, kelvin);     }
+    public static Temperature inCelsius   (Number val) { return new Temperature(val, celsius);    }
+    public static Temperature inFahrenheit(Number val) { return new Temperature(val, fahrenheit); }
+    public static Temperature inKelvin    (Number val) { return new Temperature(val, kelvin);     }
     //@formatter:on
 
     //@formatter:off

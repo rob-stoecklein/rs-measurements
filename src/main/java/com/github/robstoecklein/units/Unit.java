@@ -11,11 +11,11 @@ public abstract class Unit {
 
     //@formatter:off
     public static final String MEASURE_LENGTH      = "length";
+    public static final String MEASURE_MASS        = "mass";
     public static final String MEASURE_PRESSURE    = "pressure";
     public static final String MEASURE_TEMPERATURE = "temperature";
     public static final String MEASURE_TIME        = "time";
     public static final String MEASURE_VOLUME      = "volume";
-    public static final String MEASURE_WEIGHT      = "weight";
     //@formatter:on
 
     @EqualsAndHashCode.Include
@@ -48,8 +48,8 @@ public abstract class Unit {
      * @param value the value in the current unit to convert to standard unit
      * @return value in standard kOS units
      */
-    public Double toStandard(Double value) {
-        return (value != null) ? (value - offset) / scale : null;
+    public Number toStandard(Number value) {
+        return (value != null) ? (value.doubleValue() - offset) / scale : null;
     }
 
     /**
@@ -58,8 +58,8 @@ public abstract class Unit {
      * @param value the value in standard units to convert to this unit
      * @return value in {@code this} unit
      */
-    public Double fromStandard(Double value) {
-        return (value != null) ? (value * scale) + offset : null;
+    public Number fromStandard(Number value) {
+        return (value != null) ? (value.doubleValue() * scale) + offset : null;
     }
 
     /**
@@ -69,13 +69,13 @@ public abstract class Unit {
      * @param value the value in this unit
      * @param unit  the target unit to convert to
      */
-    public Double convert(Double value, Unit unit) {
+    public Number convert(Number value, Unit unit) {
         if (!unit.measure.equals(measure)) {
             throw new IllegalArgumentException("Incompatible measure conversion");
         }
 
         // Convert the given value to standard units:
-        Double stdVal = toStandard(value);
+        Number stdVal = toStandard(value);
 
         // Convert the standard value to target units:
         return unit.fromStandard(stdVal);

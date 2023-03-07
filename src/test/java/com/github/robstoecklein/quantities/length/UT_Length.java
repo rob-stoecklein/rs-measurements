@@ -1,4 +1,4 @@
-package com.github.robstoecklein.quantities;
+package com.github.robstoecklein.quantities.length;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -67,14 +67,5 @@ class UT_Length {
         assertThat(Length.inMeters(135.79).floatValue(),  equalTo(135.79F));
         assertThat(Length.inMeters(135.79).doubleValue(), equalTo(135.79));
         //@formatter:on
-    }
-
-    @Test
-    void verify_next() {
-        //assertThat(Length.inMeters(135.79, Exponent.MILLIS).toMeters().doubleValue(), equalTo(0.13579));
-        //assertThat(Length.inMeters(0.13579).toMeters(Exponent.MILLIS).doubleValue(), equalTo(135.79));
-
-        //assertThat(Length.inMilliMeters(135.79).toMeters().doubleValue(), equalTo(0.13579));
-        //assertThat(Length.inMeters(0.13579).toMilliMeters().doubleValue(), equalTo(135.79));
     }
 }

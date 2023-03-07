@@ -4,24 +4,40 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * Metric prefixes.
+ * https://en.wikipedia.org/wiki/Metric_prefix
+ */
 @Getter
 @ToString
 @AllArgsConstructor
 public enum Exponent {
     //@formatter:off
-    TERAS   ("tera",  "t",  12, 1.0e+12),  // trillions
-    GIGS    ("giga",  "g",   9, 1.0e+09),  // billions
-    MEGS    ("mega",  "m",   6, 1.0e+06),  // millions
-    KILOS   ("kilo",  "k",   3, 1.0e+03),  // thousands
-    HECTOS  ("hecto", "h",   2, 1.0e+02),  // hundreds
-    DEKAS   ("deka",  "da",  1, 1.0e+01),  // tens
-    STANDARD("",      "",    0, 1.0e+00),  // one
-    DECIS   ("deci",  "d",  -1, 1.0e-01),  // tenths
-    CENTIS  ("centi", "c",  -2, 1.0e-02),  // hundredths
-    MILLIS  ("milli", "m",  -3, 1.0e-03),  // thousandths
-    MICROS  ("micro", "u",  -6, 1.0e-06),  // millionths
-    NANOS   ("nano",  "n",  -9, 1.0e-09),  // billionths
-    PICOS   ("pico",  "p", -12, 1.0e-12);  // trillionths
+    QUETTA("quetta", "Q",  30, 1.0e+30),
+    RONNA ("ronna",  "R",  27, 1.0e+27),
+    YOTTA ("yotta",  "Y",  24, 1.0e+24),
+    ZETTA ("zetta",  "Z",  21, 1.0e+21),
+    EXA   ("exa",    "E",  18, 1.0e+18),
+    PETA  ("peta",   "P",  15, 1.0e+15),
+    TERA  ("tera",   "T",  12, 1.0e+12),  // trillions
+    GIGA  ("giga",   "G",   9, 1.0e+09),  // billions
+    MEGA  ("mega",   "M",   6, 1.0e+06),  // millions
+    KILO  ("kilo",   "k",   3, 1.0e+03),  // thousands
+    HECTO ("hecto",  "h",   2, 1.0e+02),  // hundreds
+    DECA  ("deka",   "da",  1, 1.0e+01),  // tens
+    STD   ("",       "",    0, 1.0e+00),  // one
+    DECI  ("deci",   "d",  -1, 1.0e-01),  // tenths
+    CENTI ("centi",  "c",  -2, 1.0e-02),  // hundredths
+    MILLI ("milli",  "m",  -3, 1.0e-03),  // thousandths
+    MICRO ("micro",  "µ",  -6, 1.0e-06),  // millionths
+    NANO  ("nano",   "n",  -9, 1.0e-09),  // billionths
+    PICO  ("pico",   "p", -12, 1.0e-12),  // trillionths
+    FEMTO ("femto",  "f", -15, 1.0e-15),
+    ATTO  ("atto",   "a", -18, 1.0e-18),
+    ZEPTO ("zepto",  "z", -21, 1.0e-21),
+    YOCTO ("yocto",  "y", -24, 1.0e-24),
+    RONTO ("ronto",  "r", -27, 1.0e-27),
+    QUECTO("quecto", "q", -30, 1.0e-30);
     //@formatter:on
 
     private final String prefix;

@@ -1,4 +1,4 @@
-package com.github.robstoecklein.quantities;
+package com.github.robstoecklein.quantities.temperature;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

@@ -8,10 +8,10 @@ import lombok.Data;
 @Data
 public abstract class Quantity {
 
-    protected final Double value;
+    protected final Number value;
     protected final Unit units;
 
-    protected Quantity(Double value, Unit units) {
+    protected Quantity(Number value, Unit units) {
         this.value = roundToStdPrecision(value);
         this.units = Objects.requireNonNull(units);
     }
@@ -33,7 +33,7 @@ public abstract class Quantity {
     }
 
     public Long getLong() {
-        return hasValue() ? Math.round(value) : null;
+        return hasValue() ? Math.round(value.doubleValue()) : null;
     }
 
     public Float getFloat() {
@@ -41,7 +41,7 @@ public abstract class Quantity {
     }
 
     public Double getDouble() {
-        return hasValue() ? value : null;
+        return hasValue() ? value.doubleValue() : null;
     }
 
     //--- xyzValue() methods ---
@@ -64,8 +64,8 @@ public abstract class Quantity {
 
     //--- roundTo() methods ---
 
-    public static Double roundToStdPrecision(Double val) {
-        return (val != null) ? Numbr.roundToStdPrecision(val) : null;
+    public static Double roundToStdPrecision(Number val) {
+        return (val != null) ? Numbr.roundToStdPrecision(val.doubleValue()) : null;
     }
 
     //    public Quantity roundToPrecision(final int numSignificantDigits) {

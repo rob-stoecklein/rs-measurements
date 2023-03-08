@@ -25,3 +25,19 @@ public class MyClass() {
     }
 }
 ```
+
+You can also use this library for simple conversions:
+
+```java
+import com.github.robstoecklein.measurements.quantities.length.Length;
+
+public class MyClass() {
+
+    /**
+     * Convert given distance (in inches) to millimeters.
+     */
+    public double someMethod(double distance) {
+        return Length.inInches(distance).toMillimeters().getDouble();
+    }
+}
+```

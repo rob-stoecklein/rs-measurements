@@ -5,12 +5,16 @@ import com.github.robstoecklein.measurements.quantities.temperature.TemperatureU
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Fahrenheit;
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Kelvin;
 
+/**
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
+ */
 public class Temperature extends Quantity {
 
     //@formatter:off
-    public static final Celsius    celsius    = new Celsius();
-    public static final Fahrenheit fahrenheit = new Fahrenheit();
-    public static final Kelvin     kelvin     = new Kelvin();
+    private static final Celsius    celsius    = new Celsius();
+    private static final Fahrenheit fahrenheit = new Fahrenheit();
+    private static final Kelvin     kelvin     = new Kelvin();
     //@formatter:on
 
     public Temperature(Number val, TemperatureUnits units) {
@@ -24,8 +28,12 @@ public class Temperature extends Quantity {
     //@formatter:on
 
     //@formatter:off
-    public Temperature toCelsius()    { return new Temperature(units.convert(value, celsius),    celsius);    }
-    public Temperature toFahrenheit() { return new Temperature(units.convert(value, fahrenheit), fahrenheit); }
-    public Temperature toKelvin()     { return new Temperature(units.convert(value, kelvin),     kelvin);    }
+    public Temperature toCelsius()    { return convert(value, celsius);    }
+    public Temperature toFahrenheit() { return convert(value, fahrenheit); }
+    public Temperature toKelvin()     { return convert(value, kelvin);     }
     //@formatter:on
+
+    private Temperature convert(Number val, TemperatureUnits newUnits) {
+        return new Temperature(units.convert(val, newUnits), newUnits);
+    }
 }

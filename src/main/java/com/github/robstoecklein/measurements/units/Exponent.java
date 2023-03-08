@@ -7,6 +7,9 @@ import lombok.ToString;
 /**
  * Metric prefixes.
  * https://en.wikipedia.org/wiki/Metric_prefix
+ *
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
  */
 @Getter
 @ToString
@@ -43,5 +46,9 @@ public enum Exponent {
     private final String prefix;
     private final String abbr;
     private final int exponent;
-    private final double conversionFactorToStandard;
+    private final double conversionFactor;
+
+    public double numberPerStd() {
+        return 1 / conversionFactor;
+    }
 }

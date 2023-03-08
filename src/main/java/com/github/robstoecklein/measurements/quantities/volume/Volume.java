@@ -5,43 +5,55 @@ import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Cups;
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.FluidOunces;
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Gallons;
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Liters;
-import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.MilliLiters;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Milliliters;
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Pints;
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Quarts;
 
-public final class Volume extends Quantity {
+/**
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
+ */
+public class Volume extends Quantity {
 
     //@formatter:off
-    public static final Liters      liters      = new Liters();
-    public static final MilliLiters milliliters = new MilliLiters();
-    public static final FluidOunces fluidOunces = new FluidOunces();
-    public static final Cups        cups        = new Cups();
-    public static final Pints       pints       = new Pints();
-    public static final Quarts      quarts      = new Quarts();
-    public static final Gallons     gallons     = new Gallons();
+    // US
+    private static final FluidOunces fluidOunces = new FluidOunces();
+    private static final Cups        cups        = new Cups();
+    private static final Pints       pints       = new Pints();
+    private static final Quarts      quarts      = new Quarts();
+    private static final Gallons     gallons     = new Gallons();
+    // SI
+    private static final Milliliters milliliters = new Milliliters();
+    private static final Liters      liters      = new Liters();
     //@formatter:on
 
-    private Volume(Number value, VolumeUnits units) {
+    public Volume(Number value, VolumeUnits units) {
         super(value, units);
     }
 
     //@formatter:off
-    public static Volume inLiters     (Number val) { return new Volume(val, liters);      }
-    public static Volume inMilliLiters(Number val) { return new Volume(val, milliliters); }
     public static Volume inFluidOunces(Number val) { return new Volume(val, fluidOunces); }
     public static Volume inCups       (Number val) { return new Volume(val, cups);        }
     public static Volume inPints      (Number val) { return new Volume(val, pints);       }
     public static Volume inQuarts     (Number val) { return new Volume(val, quarts);      }
     public static Volume inGallons    (Number val) { return new Volume(val, gallons);     }
+
+    public static Volume inMilliLiters(Number val) { return new Volume(val, milliliters); }
+    public static Volume inLiters     (Number val) { return new Volume(val, liters);      }
     //@formatter:on
 
     //@formatter:off
-    public Volume toLiters()      { return new Volume(units.convert(value, liters),      liters);      }
-    public Volume toMilliLiters() { return new Volume(units.convert(value, milliliters), milliliters); }
-    public Volume toFluidOunces() { return new Volume(units.convert(value, fluidOunces), fluidOunces); }
-    public Volume toCups()        { return new Volume(units.convert(value, cups),        cups);        }
-    public Volume toPints()       { return new Volume(units.convert(value, pints),       pints);       }
-    public Volume toQuarts()      { return new Volume(units.convert(value, quarts),      quarts);      }
-    public Volume toGallons()     { return new Volume(units.convert(value, gallons),     gallons);     }
+    public Volume toFluidOunces() { return convert(value, fluidOunces); }
+    public Volume toCups()        { return convert(value, cups);        }
+    public Volume toPints()       { return convert(value, pints);       }
+    public Volume toQuarts()      { return convert(value, quarts);      }
+    public Volume toGallons()     { return convert(value, gallons);     }
+
+    public Volume toMilliLiters() { return convert(value, milliliters); }
+    public Volume toLiters()      { return convert(value, liters);      }
     //@formatter:on
+
+    private Volume convert(Number val, VolumeUnits newUnits) {
+        return new Volume(units.convert(val, newUnits), newUnits);
+    }
 }

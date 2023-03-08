@@ -4,6 +4,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
+ */
 @Getter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -22,24 +26,21 @@ public abstract class Unit {
     private final String measure;
     @EqualsAndHashCode.Include
     private final String name;
-    private final String plural;
     private final String abbr;
-    private final double scale;
-    private final double offset;
-    private final int exponent;
+    private final Number scale;
+    private final Number offset;
     private final boolean isStandard;
 
-    public Unit(String messure, String name, String plural, String abbr, double scale, double offset, int exponent, boolean isStandard) {
+    public Unit(String messure, String name, String abbr, Number scale, Number offset) {
         //@formatter:off
-        this.measure    = messure;
-        this.name       = name;
-        this.plural     = plural;
-        this.abbr       = abbr;
-        this.scale      = scale;
-        this.offset     = offset;
-        this.exponent   = exponent;
-        this.isStandard = isStandard;
+        this.measure = messure;
+        this.name    = name;
+        this.abbr    = abbr;
+        this.scale   = scale;
+        this.offset  = offset;
         //@formatter:on
+        //noinspection FloatingPointEquality
+        this.isStandard = (scale.doubleValue() == 1.0) && (offset.doubleValue() == 0.0);
     }
 
     /**
@@ -49,7 +50,7 @@ public abstract class Unit {
      * @return value in standard kOS units
      */
     public Number toStandard(Number value) {
-        return (value != null) ? (value.doubleValue() - offset) / scale : null;
+        return (value != null) ? (value.doubleValue() - offset.doubleValue()) / scale.doubleValue() : null;
     }
 
     /**
@@ -59,7 +60,7 @@ public abstract class Unit {
      * @return value in {@code this} unit
      */
     public Number fromStandard(Number value) {
-        return (value != null) ? (value.doubleValue() * scale) + offset : null;
+        return (value != null) ? (value.doubleValue() * scale.doubleValue()) + offset.doubleValue() : null;
     }
 
     /**

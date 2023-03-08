@@ -2,27 +2,31 @@ package com.github.robstoecklein.measurements.quantities.temperature;
 
 import com.github.robstoecklein.measurements.units.Unit;
 
+/**
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
+ */
 public abstract class TemperatureUnits extends Unit {
 
-    public TemperatureUnits(String name, String plural, String abbr, double scale, double offset, boolean isStandard) {
-        super(MEASURE_TEMPERATURE, name, plural, abbr, scale, offset, 0, isStandard);
+    public TemperatureUnits(String name, String abbr, double scale, double offset) {
+        super(MEASURE_TEMPERATURE, name, abbr, scale, offset);
     }
 
     public static class Celsius extends TemperatureUnits {
         public Celsius() {
-            super("Celsius", "", "C", 1.0, 0.0, true);
+            super("Celsius", "C", 1.0, 0.0);
         }
     }
 
     public static class Fahrenheit extends TemperatureUnits {
         public Fahrenheit() {
-            super("Fahrenheit", "", "F", 1.8, 32.0, false);
+            super("Fahrenheit", "F", 1.8, 32.0);
         }
     }
 
     public static class Kelvin extends TemperatureUnits {
         public Kelvin() {
-            super("Kelvin", "", "k", 1.0, 273.15, false);
+            super("Kelvin", "k", 1.0, 273.15);
         }
     }
 }

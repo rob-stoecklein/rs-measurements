@@ -1,53 +1,57 @@
 package com.github.robstoecklein.measurements.quantities.volume;
 
-import com.github.robstoecklein.measurements.units.Unit;
 import com.github.robstoecklein.measurements.units.MathConstants;
+import com.github.robstoecklein.measurements.units.Unit;
 
+/**
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
+ */
 public class VolumeUnits extends Unit {
 
-    public VolumeUnits(String name, String plural, String abbr, double scale, double offset, boolean isStandard) {
-        super(MEASURE_VOLUME, name, plural, abbr, scale, offset, 0, isStandard);
+    public VolumeUnits(String name, String abbr, double scale) {
+        super(MEASURE_VOLUME, name, abbr, scale, 0.0);
     }
 
     public static class Liters extends VolumeUnits {
         public Liters() {
-            super("liter", "liters", "l", 1.0, 0.0, true);
+            super("liter", "l", 1.0);
         }
     }
 
-    public static class MilliLiters extends VolumeUnits {
-        public MilliLiters() {
-            super("milliliter", "milliliters", "ml", MathConstants.MILLILITERS_PER_LITER, 0.0, false);
+    public static class Milliliters extends VolumeUnits {
+        public Milliliters() {
+            super("milliliter", "ml", MathConstants.MILLILITERS_PER_LITER);
         }
     }
 
     public static class FluidOunces extends VolumeUnits {
         public FluidOunces() {
-            super("fluid ounce", "fluid ounces", "fl oz", MathConstants.OUNCES_PER_LITER, 0.0, false);
+            super("fluid ounce", "fl oz", MathConstants.OUNCES_PER_LITER);
         }
     }
 
     public static class Cups extends VolumeUnits {
         public Cups() {
-            super("cup", "cups", "c", MathConstants.CUPS_PER_LITER, 0.0, false);
+            super("cup", "c", MathConstants.CUPS_PER_LITER);
         }
     }
 
     public static class Pints extends VolumeUnits {
         public Pints() {
-            super("pint", "pints", "p", MathConstants.PINTS_PER_LITER, 0.0, false);
+            super("pint", "p", MathConstants.PINTS_PER_LITER);
         }
     }
 
     public static class Quarts extends VolumeUnits {
         public Quarts() {
-            super("quart", "quarts", "q", MathConstants.QUARTS_PER_LITER, 0.0, false);
+            super("quart", "q", MathConstants.QUARTS_PER_LITER);
         }
     }
 
     public static class Gallons extends VolumeUnits {
         public Gallons() {
-            super("gallon", "gallons", "g", MathConstants.GALLONS_PER_LITER, 0.0, false);
+            super("gallon", "g", MathConstants.GALLONS_PER_LITER);
         }
     }
 }

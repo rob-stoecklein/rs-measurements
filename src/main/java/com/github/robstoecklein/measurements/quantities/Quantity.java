@@ -5,6 +5,10 @@ import com.github.robstoecklein.measurements.util.Numbr;
 import java.util.Objects;
 import lombok.Data;
 
+/**
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
+ */
 @Data
 public abstract class Quantity {
 

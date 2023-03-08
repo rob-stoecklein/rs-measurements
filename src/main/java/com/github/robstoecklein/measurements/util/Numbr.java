@@ -6,6 +6,10 @@ import java.math.RoundingMode;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Rob Stoecklein (rstoeck@gmail.com)
+ * @version 2023-03-08
+ */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Numbr {
 

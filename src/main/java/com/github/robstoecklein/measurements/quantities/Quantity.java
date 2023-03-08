@@ -81,4 +81,11 @@ public abstract class Quantity {
     //        final Double newValue = roundToNumDecimalPlaces(value, numDecimalPlaces);
     //        return newInstance(newValue, units);
     //    }
+
+    //--- toString() methods ---
+
+    public String toString(String format) {
+        String fmt = format + " %s";
+        return String.format(fmt, value, units.getAbbr());
+    }
 }

@@ -14,19 +14,19 @@ public abstract class TemperatureUnits extends Unit {
 
     public static class Celsius extends TemperatureUnits {
         public Celsius() {
-            super("Celsius", "C", 1.0, 0.0);
+            super("Celsius", "°C", 1.0, 0.0);
         }
     }
 
     public static class Fahrenheit extends TemperatureUnits {
         public Fahrenheit() {
-            super("Fahrenheit", "F", 1.8, 32.0);
+            super("Fahrenheit", "°F", 1.8, 32.0);
         }
     }
 
     public static class Kelvin extends TemperatureUnits {
         public Kelvin() {
-            super("Kelvin", "k", 1.0, 273.15);
+            super("Kelvin", "°K", 1.0, 273.15);
         }
     }
 }

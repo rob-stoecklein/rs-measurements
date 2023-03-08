@@ -42,4 +42,15 @@ class UT_Temperature {
         assertThat(Temperature.inKelvin( 99.9).toKelvin()    .getValue(), equalTo(  99.90));
         //@formatter:on
     }
+
+    @Test
+    void verify_toString_method() {
+        assertThat(Temperature.inFahrenheit(78.9).toString(),
+                equalTo("Quantity(value=78.9, units=Unit(measure=temperature, name=Fahrenheit, abbr=°F, scale=1.8, offset=32.0, isStandard=false))"));
+    }
+
+    @Test
+    void verify_toString2_method() {
+        assertThat(Temperature.inFahrenheit(78.9).toString("%.2f"), equalTo("78.90 °F"));
+    }
 }

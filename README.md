@@ -20,7 +20,7 @@ public class MyClass() {
 
     public void outputData() {
         Distance numFeet = distance.toFeet();
-        log.info("distance = {} {}", numFeet.getInteger(), numFeet.getUnits().getAbbr());
+        log.info("distance = {} {}", numFeet.getInteger(), numFeet.getAbbr());
         log.info("temperature = {}", temperature.toFahrenheit().toString("%.2f"));
     }
 }

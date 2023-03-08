@@ -44,6 +44,15 @@ class UT_Temperature {
     }
 
     @Test
+    void verify_getAbbr_method() {
+        //@formatter:off
+        assertThat(Temperature.inCelsius   (12.34).getAbbr(), equalTo("°C"));
+        assertThat(Temperature.inFahrenheit(12.34).getAbbr(), equalTo("°F"));
+        assertThat(Temperature.inKelvin    (12.34).getAbbr(), equalTo("°K"));
+        //@formatter:on
+    }
+
+    @Test
     void verify_toString_method() {
         assertThat(Temperature.inFahrenheit(78.9).toString(),
                 equalTo("Quantity(value=78.9, units=Unit(measure=temperature, name=Fahrenheit, abbr=°F, scale=1.8, offset=32.0, isStandard=false))"));

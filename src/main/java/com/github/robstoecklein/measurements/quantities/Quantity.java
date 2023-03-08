@@ -82,6 +82,12 @@ public abstract class Quantity {
     //        return newInstance(newValue, units);
     //    }
 
+    //--- "units" methods ---
+
+    public String getAbbr() {
+        return units.getAbbr();
+    }
+
     //--- toString() methods ---
 
     public String toString(String format) {

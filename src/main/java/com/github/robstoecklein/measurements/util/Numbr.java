@@ -1,4 +1,4 @@
-package com.github.robstoecklein.util;
+package com.github.robstoecklein.measurements.util;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

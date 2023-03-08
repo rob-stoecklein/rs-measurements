@@ -1,7 +1,7 @@
-package com.github.robstoecklein.quantities.volume;
+package com.github.robstoecklein.measurements.quantities.volume;
 
-import com.github.robstoecklein.units.MathConstants;
-import com.github.robstoecklein.units.Unit;
+import com.github.robstoecklein.measurements.units.Unit;
+import com.github.robstoecklein.measurements.units.MathConstants;
 
 public class VolumeUnits extends Unit {
 

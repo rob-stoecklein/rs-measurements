@@ -1,7 +1,7 @@
-package com.github.robstoecklein.quantities;
+package com.github.robstoecklein.measurements.quantities;
 
-import com.github.robstoecklein.units.Unit;
-import com.github.robstoecklein.util.Numbr;
+import com.github.robstoecklein.measurements.units.Unit;
+import com.github.robstoecklein.measurements.util.Numbr;
 import java.util.Objects;
 import lombok.Data;
 

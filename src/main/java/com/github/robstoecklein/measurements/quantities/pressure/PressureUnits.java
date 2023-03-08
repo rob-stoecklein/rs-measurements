@@ -1,6 +1,6 @@
-package com.github.robstoecklein.quantities.pressure;
+package com.github.robstoecklein.measurements.quantities.pressure;
 
-import com.github.robstoecklein.units.Unit;
+import com.github.robstoecklein.measurements.units.Unit;
 
 public abstract class PressureUnits extends Unit {
 

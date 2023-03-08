@@ -1,9 +1,9 @@
-package com.github.robstoecklein.quantities.temperature;
+package com.github.robstoecklein.measurements.quantities.temperature;
 
-import com.github.robstoecklein.quantities.Quantity;
-import com.github.robstoecklein.quantities.temperature.TemperatureUnits.Celsius;
-import com.github.robstoecklein.quantities.temperature.TemperatureUnits.Fahrenheit;
-import com.github.robstoecklein.quantities.temperature.TemperatureUnits.Kelvin;
+import com.github.robstoecklein.measurements.quantities.Quantity;
+import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Celsius;
+import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Fahrenheit;
+import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Kelvin;
 
 public class Temperature extends Quantity {
 

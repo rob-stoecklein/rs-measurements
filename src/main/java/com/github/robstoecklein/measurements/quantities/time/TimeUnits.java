@@ -1,6 +1,6 @@
-package com.github.robstoecklein.quantities.time;
+package com.github.robstoecklein.measurements.quantities.time;
 
-import com.github.robstoecklein.units.Unit;
+import com.github.robstoecklein.measurements.units.Unit;
 
 public abstract class TimeUnits extends Unit {
 

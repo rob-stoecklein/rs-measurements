@@ -1,11 +1,11 @@
-package com.github.robstoecklein.quantities.length;
+package com.github.robstoecklein.measurements.quantities.length;
 
-import com.github.robstoecklein.quantities.Quantity;
-import com.github.robstoecklein.quantities.length.LengthUnits.Feet;
-import com.github.robstoecklein.quantities.length.LengthUnits.Inches;
-import com.github.robstoecklein.quantities.length.LengthUnits.Meters;
-import com.github.robstoecklein.quantities.length.LengthUnits.Miles;
-import com.github.robstoecklein.quantities.length.LengthUnits.Yards;
+import com.github.robstoecklein.measurements.quantities.Quantity;
+import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Feet;
+import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Inches;
+import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Meters;
+import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Miles;
+import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Yards;
 
 public final class Length extends Quantity {
 

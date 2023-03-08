@@ -1,4 +1,4 @@
-package com.github.robstoecklein.quantities.volume;
+package com.github.robstoecklein.measurements.quantities.volume;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

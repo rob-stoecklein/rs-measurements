@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    @project: com.tccc.kos.sdk:parent
-    @bucket:  git@github.com:The-Coca-Cola-Company/kos_sdk.git
+    @project: com.github.rob-stoecklein:rs-measurements
+    @bucket:  git@github.com:
     @author:  Rob Stoecklein
-    @version: 2023-03-01
+    @version: 2023-03-08
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -13,15 +13,15 @@
     <!-- ====== Basics =============================================================== -->
 
     <groupId>com.github.rob-stoecklein</groupId>
-    <artifactId>j-units</artifactId>
+    <artifactId>rs-measurements</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>Java Units</name>
+    <name>Java Measurement Quantities and Units</name>
 
     <!-- ====== Properties =========================================================== -->
 
     <properties>
-        <company.name>TCCC</company.name>
+        <company.name>Rob Stoecklein</company.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>

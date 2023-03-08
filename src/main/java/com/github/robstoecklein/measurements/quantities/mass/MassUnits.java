@@ -1,6 +1,6 @@
-package com.github.robstoecklein.quantities.mass;
+package com.github.robstoecklein.measurements.quantities.mass;
 
-import com.github.robstoecklein.units.Unit;
+import com.github.robstoecklein.measurements.units.Unit;
 
 public class MassUnits extends Unit {
 

@@ -1,13 +1,13 @@
-package com.github.robstoecklein.quantities.volume;
+package com.github.robstoecklein.measurements.quantities.volume;
 
-import com.github.robstoecklein.quantities.Quantity;
-import com.github.robstoecklein.quantities.volume.VolumeUnits.Cups;
-import com.github.robstoecklein.quantities.volume.VolumeUnits.FluidOunces;
-import com.github.robstoecklein.quantities.volume.VolumeUnits.Gallons;
-import com.github.robstoecklein.quantities.volume.VolumeUnits.Liters;
-import com.github.robstoecklein.quantities.volume.VolumeUnits.MilliLiters;
-import com.github.robstoecklein.quantities.volume.VolumeUnits.Pints;
-import com.github.robstoecklein.quantities.volume.VolumeUnits.Quarts;
+import com.github.robstoecklein.measurements.quantities.Quantity;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Cups;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.FluidOunces;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Gallons;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Liters;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.MilliLiters;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Pints;
+import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Quarts;
 
 public final class Volume extends Quantity {
 

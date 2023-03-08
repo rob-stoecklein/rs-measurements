@@ -1,4 +1,4 @@
-package com.github.robstoecklein.units;
+package com.github.robstoecklein.measurements.units;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

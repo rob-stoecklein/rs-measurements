@@ -1,4 +1,4 @@
-package com.github.robstoecklein.quantities.length;
+package com.github.robstoecklein.measurements.quantities.length;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

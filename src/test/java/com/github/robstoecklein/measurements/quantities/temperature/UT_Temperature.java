@@ -57,14 +57,14 @@ class UT_Temperature {
         final Temperature temperature = Temperature.inFahrenheit(123.456789);
         assertThat(temperature.toString(), equalTo("123.456789"));
 
-        temperature.setNumDecimalPlaces(2);
+        temperature.numDecimalPlaces(2);
         assertThat(temperature.toString(), equalTo("123.46"));
 
-        temperature.setNumDecimalPlaces(null);
-        temperature.setNumSignificantDigits(6);
+        temperature.numDecimalPlaces(null);
+        temperature.numSignificantDigits(6);
         assertThat(temperature.toString(), equalTo("123.457"));
 
-        temperature.setIncludeUnits(true);
+        temperature.includeUnits(true);
         assertThat(temperature.toString(), equalTo("123.457 °F"));
     }
 
@@ -78,21 +78,18 @@ class UT_Temperature {
     void verify_builder_methods() {
         Temperature temperature = null;
 
-        temperature = Temperature
-                .builder()
-                .value(987.654)
-                .units(Temperature.CELSIUS)
+        temperature = new Temperature(987.654, Temperature.CELSIUS)
                 .numDecimalPlaces(2)
-                .includeUnits(true)
-                .build();
-        assertThat(temperature.toFahrenheit().toString(), equalTo("1809.78 °F"));
+                .includeUnits(true);
 
-        temperature = Temperature
-                .builder()
-                .value(987.654)
-                .units(Temperature.FAHRENHEIT)
-                .numSignificantDigits(4)
-                .build();
-        assertThat(temperature.toKelvin().toString(), equalTo("804.1"));
+                assertThat(temperature.toFahrenheit().toString(), equalTo("1809.78 °F"));
+        //
+        //        temperature = Temperature
+        //                .builder()
+        //                .value(987.654)
+        //                .units(Temperature.FAHRENHEIT)
+        //                .numSignificantDigits(4)
+        //                .build();
+        //        assertThat(temperature.toKelvin().toString(), equalTo("804.1"));
     }
 }

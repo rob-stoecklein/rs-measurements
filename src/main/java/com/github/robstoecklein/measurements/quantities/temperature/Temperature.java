@@ -4,13 +4,11 @@ import com.github.robstoecklein.measurements.quantities.Quantity;
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Celsius;
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Fahrenheit;
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Kelvin;
-import lombok.experimental.SuperBuilder;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
  * @version 2023-03-16
  */
-@SuperBuilder(toBuilder = true)
 public class Temperature extends Quantity {
 
     //@formatter:off
@@ -18,10 +16,6 @@ public class Temperature extends Quantity {
     public static final Fahrenheit FAHRENHEIT = new Fahrenheit();
     public static final Kelvin     KELVIN     = new Kelvin();
     //@formatter:on
-
-    public Temperature() {
-        this(null, null);
-    }
 
     public Temperature(Number value, TemperatureUnits units) {
         super(value, units);
@@ -40,9 +34,26 @@ public class Temperature extends Quantity {
     //@formatter:on
 
     private Temperature convert(Number val, TemperatureUnits newUnits) {
-        return toBuilder()
-                .value(units.convert(val, newUnits))
-                .units(newUnits)
-                .build();
+        return new Temperature(units.convert(val, newUnits), newUnits)
+                .numDecimalPlaces(this.getNumDecimalPlaces())
+                .numSignificantDigits(this.getNumSignificantDigits())
+                .includeUnits(this.isIncludeUnits());
+    }
+
+    //--- Setters ---
+
+    public Temperature numDecimalPlaces(Integer numDecimalPlaces) {
+        setNumDecimalPlaces(numDecimalPlaces);
+        return this;
+    }
+
+    public Temperature numSignificantDigits(Integer numSignificantDigits) {
+        setNumSignificantDigits(numSignificantDigits);
+        return this;
+    }
+
+    public Temperature includeUnits(boolean includeUnits) {
+        setIncludeUnits(includeUnits);
+        return this;
     }
 }

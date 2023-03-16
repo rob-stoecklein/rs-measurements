@@ -4,7 +4,7 @@ import com.github.robstoecklein.measurements.units.Unit;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-08
+ * @version 2023-03-16
  */
 public abstract class TemperatureUnits extends Unit {
 
@@ -13,19 +13,19 @@ public abstract class TemperatureUnits extends Unit {
     }
 
     public static class Celsius extends TemperatureUnits {
-        public Celsius() {
+        protected Celsius() {
             super("Celsius", "°C", 1.0, 0.0);
         }
     }
 
     public static class Fahrenheit extends TemperatureUnits {
-        public Fahrenheit() {
+        protected Fahrenheit() {
             super("Fahrenheit", "°F", 1.8, 32.0);
         }
     }
 
     public static class Kelvin extends TemperatureUnits {
-        public Kelvin() {
+        protected Kelvin() {
             super("Kelvin", "°K", 1.0, 273.15);
         }
     }

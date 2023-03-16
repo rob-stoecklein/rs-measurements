@@ -85,7 +85,7 @@ public abstract class LengthUnits extends Unit {
 
     public static class Kilometers extends LengthUnits {
         public Kilometers() {
-            super("kilometers", "m", MathConstants.NUM_KILOS);
+            super("kilometers", "km", MathConstants.NUM_KILOS);
         }
     }
 }

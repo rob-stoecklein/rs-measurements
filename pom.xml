@@ -307,6 +307,40 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <!-- https://maven.apache.org/plugins/maven-javadoc-plugin/javadoc-mojo.html -->
+                <configuration>
+                    <!-- Don't check "missing" Javadoc at this time, as there are hundreds of these :-\  -->
+                    <!-- https://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html -->
+                    <!-- https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html#BEJEFABE -->
+                    <additionalOptions>
+                        <additionalOption>-Xdoclint:accessibility,html,reference,syntax</additionalOption>
+                        <!-- NOT: <additionalOption>-Xdoclint:missing</additionalOption> -->
+                    </additionalOptions>
+                    <!-- Discard the "@author" tag -->
+                    <author>false</author>
+                    <!-- Put the copyright notice at the bottom of every page -->
+                    <bottom>(C) Copyright 2023 RS. All rights reserved.</bottom>
+                    <!-- Enable deep copying of the **/doc-files -->
+                    <docfilessubdirs>true</docfilessubdirs>
+                    <!-- Set the documentation title on the overview-summary.html page -->
+                    <doctitle>${project.name} v${project.version}</doctitle>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

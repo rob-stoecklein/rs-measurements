@@ -16,25 +16,25 @@ import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Yards
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-08
+ * @version 2023-03-16
  */
 public class Length extends Quantity {
 
     //@formatter:off
     // US
-    private static final Inches        inches        = new Inches();
-    private static final Feet          feet          = new Feet();
-    private static final Yards         yards         = new Yards();
-    private static final Miles         miles         = new Miles();
-    private static final NauticalMiles nauticalMiles = new NauticalMiles();
+    private static final Inches        INCHES         = new Inches();
+    private static final Feet          FEET           = new Feet();
+    private static final Yards         YARDS          = new Yards();
+    private static final Miles         MILES          = new Miles();
+    private static final NauticalMiles NAUTICAL_MILES = new NauticalMiles();
     // SI
-    private static final Nanometers    nanometers    = new Nanometers();
-    private static final Micrometers   micrometers   = new Micrometers();
-    private static final Millimeters   millimeters   = new Millimeters();
-    private static final Centimeters   centimeters   = new Centimeters();
-    private static final Decimeters    decimeters    = new Decimeters();
-    private static final Meters        meters        = new Meters();
-    private static final Kilometers    kilometers    = new Kilometers();
+    private static final Nanometers    NANOMETERS     = new Nanometers();
+    private static final Micrometers   MICROMETERS    = new Micrometers();
+    private static final Millimeters   MILLIMETERS    = new Millimeters();
+    private static final Centimeters   CENTIMETERS    = new Centimeters();
+    private static final Decimeters    DECIMETERS     = new Decimeters();
+    private static final Meters        METERS         = new Meters();
+    private static final Kilometers    KILOMETERS     = new Kilometers();
     //@formatter:on
 
     public Length(Number value, LengthUnits units) {
@@ -42,35 +42,35 @@ public class Length extends Quantity {
     }
 
     //@formatter:off
-    public static Length inInches       (Number val) { return new Length(val, inches);        }
-    public static Length inFeet         (Number val) { return new Length(val, feet);          }
-    public static Length inYards        (Number val) { return new Length(val, yards);         }
-    public static Length inMiles        (Number val) { return new Length(val, miles);         }
-    public static Length inNauticalMiles(Number val) { return new Length(val, nauticalMiles); }
+    public static Length inInches       (Number val) { return new Length(val, INCHES);        }
+    public static Length inFeet         (Number val) { return new Length(val, FEET);          }
+    public static Length inYards        (Number val) { return new Length(val, YARDS);         }
+    public static Length inMiles        (Number val) { return new Length(val, MILES);         }
+    public static Length inNauticalMiles(Number val) { return new Length(val, NAUTICAL_MILES); }
 
-    public static Length inNanometers   (Number val) { return new Length(val, nanometers);  }
-    public static Length inMicrometers  (Number val) { return new Length(val, micrometers); }
-    public static Length inMillimeters  (Number val) { return new Length(val, millimeters); }
-    public static Length inCentimeters  (Number val) { return new Length(val, centimeters); }
-    public static Length inDecimeters   (Number val) { return new Length(val, decimeters);  }
-    public static Length inMeters       (Number val) { return new Length(val, meters);      }
-    public static Length inKilometers   (Number val) { return new Length(val, kilometers);  }
+    public static Length inNanometers   (Number val) { return new Length(val, NANOMETERS);  }
+    public static Length inMicrometers  (Number val) { return new Length(val, MICROMETERS); }
+    public static Length inMillimeters  (Number val) { return new Length(val, MILLIMETERS); }
+    public static Length inCentimeters  (Number val) { return new Length(val, CENTIMETERS); }
+    public static Length inDecimeters   (Number val) { return new Length(val, DECIMETERS);  }
+    public static Length inMeters       (Number val) { return new Length(val, METERS);      }
+    public static Length inKilometers   (Number val) { return new Length(val, KILOMETERS);  }
     //@formatter:on
 
     //@formatter:off
-    public Length toInches()        { return convert(value, inches); }
-    public Length toFeet()          { return convert(value, feet);   }
-    public Length toYards()         { return convert(value, yards);  }
-    public Length toMiles()         { return convert(value, miles);  }
-    public Length toNauticalMiles() { return convert(value, miles);  }
+    public Length toInches()        { return convert(value, INCHES); }
+    public Length toFeet()          { return convert(value, FEET);   }
+    public Length toYards()         { return convert(value, YARDS);  }
+    public Length toMiles()         { return convert(value, MILES);  }
+    public Length toNauticalMiles() { return convert(value, MILES);  }
 
-    public Length toNanometers()    { return convert(value, nanometers);  }
-    public Length toMicrometers()   { return convert(value, micrometers); }
-    public Length toMillimeters()   { return convert(value, millimeters); }
-    public Length toCentimeters()   { return convert(value, centimeters); }
-    public Length toDecimeters()    { return convert(value, decimeters);  }
-    public Length toMeters()        { return convert(value, meters);      }
-    public Length toKilometers()    { return convert(value, kilometers);  }
+    public Length toNanometers()    { return convert(value, NANOMETERS);  }
+    public Length toMicrometers()   { return convert(value, MICROMETERS); }
+    public Length toMillimeters()   { return convert(value, MILLIMETERS); }
+    public Length toCentimeters()   { return convert(value, CENTIMETERS); }
+    public Length toDecimeters()    { return convert(value, DECIMETERS);  }
+    public Length toMeters()        { return convert(value, METERS);      }
+    public Length toKilometers()    { return convert(value, KILOMETERS);  }
     //@formatter:on
 
     private Length convert(Number val, LengthUnits newUnits) {

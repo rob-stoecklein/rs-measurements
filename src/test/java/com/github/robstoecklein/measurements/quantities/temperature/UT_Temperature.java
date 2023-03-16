@@ -54,12 +54,45 @@ class UT_Temperature {
 
     @Test
     void verify_toString_method() {
-        assertThat(Temperature.inFahrenheit(78.9).toString(),
-                equalTo("Quantity(value=78.9, units=Unit(measure=temperature, name=Fahrenheit, abbr=°F, scale=1.8, offset=32.0, isStandard=false))"));
+        final Temperature temperature = Temperature.inFahrenheit(123.456789);
+        assertThat(temperature.toString(), equalTo("123.456789"));
+
+        temperature.setNumDecimalPlaces(2);
+        assertThat(temperature.toString(), equalTo("123.46"));
+
+        temperature.setNumDecimalPlaces(null);
+        temperature.setNumSignificantDigits(6);
+        assertThat(temperature.toString(), equalTo("123.457"));
+
+        temperature.setIncludeUnits(true);
+        assertThat(temperature.toString(), equalTo("123.457 °F"));
     }
 
     @Test
     void verify_toString2_method() {
-        assertThat(Temperature.inFahrenheit(78.9).toString("%.2f"), equalTo("78.90 °F"));
+        assertThat(Temperature.inFahrenheit(null).toString("%.2f"), equalTo(""));
+        assertThat(Temperature.inFahrenheit(78.9).toString("%.2f"), equalTo("78.90"));
+    }
+
+    @Test
+    void verify_builder_methods() {
+        Temperature temperature = null;
+
+        temperature = Temperature
+                .builder()
+                .value(987.654)
+                .units(Temperature.CELSIUS)
+                .numDecimalPlaces(2)
+                .includeUnits(true)
+                .build();
+        assertThat(temperature.toFahrenheit().toString(), equalTo("1809.78 °F"));
+
+        temperature = Temperature
+                .builder()
+                .value(987.654)
+                .units(Temperature.FAHRENHEIT)
+                .numSignificantDigits(4)
+                .build();
+        assertThat(temperature.toKelvin().toString(), equalTo("804.1"));
     }
 }

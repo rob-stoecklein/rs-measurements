@@ -4,20 +4,38 @@ import com.github.robstoecklein.measurements.units.Unit;
 import com.github.robstoecklein.measurements.util.Numbr;
 import java.util.Objects;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-08
+ * @version 2023-03-16
  */
 @Data
+@SuperBuilder(toBuilder = true)
 public abstract class Quantity {
 
+    //--- Value and Units ---
     protected final Number value;
     protected final Unit units;
+
+    //--- How the value and units are displayed ---
+    private Integer numDecimalPlaces;
+    private Integer numSignificantDigits;
+    private boolean includeUnits;
+
+    protected Quantity() {
+        this(null, null);
+    }
 
     protected Quantity(Number value, Unit units) {
         this.value = roundToStdPrecision(value);
         this.units = Objects.requireNonNull(units);
+    }
+
+    //--- special getters ---
+
+    public Number getValue() {
+        return roundToStdPrecision(value);
     }
 
     //--- hasValue() methods ---
@@ -72,16 +90,6 @@ public abstract class Quantity {
         return (val != null) ? Numbr.roundToStdPrecision(val.doubleValue()) : null;
     }
 
-    //    public Quantity roundToPrecision(final int numSignificantDigits) {
-    //        final Double newValue = roundToPrecision(value, numSignificantDigits);
-    //        return newInstance(newValue, units);
-    //    }
-
-    //    public Quantity roundToNumDecimalPlaces(final int numDecimalPlaces) {
-    //        final Double newValue = roundToNumDecimalPlaces(value, numDecimalPlaces);
-    //        return newInstance(newValue, units);
-    //    }
-
     //--- "units" methods ---
 
     public String getAbbr() {
@@ -90,8 +98,28 @@ public abstract class Quantity {
 
     //--- toString() methods ---
 
+    @Override
+    public String toString() {
+        String str = null;
+        if (hasValue()) {
+            final double val = roundToStdPrecision(value);
+            if (numDecimalPlaces != null) {
+                final double newValue = Numbr.roundToNumDecimalPlaces(val, numDecimalPlaces);
+                str = String.format("%s", newValue);
+            } else if (numSignificantDigits != null) {
+                final double newValue = Numbr.roundToPrecision(val, numSignificantDigits);
+                str = String.format("%s", newValue);
+            } else {
+                str = String.format("%s", val);
+            }
+        }
+        if ((str != null) && includeUnits) {
+            str = String.format("%s %s", str, getAbbr());
+        }
+        return str;
+    }
+
     public String toString(String format) {
-        String fmt = format + " %s";
-        return String.format(fmt, value, units.getAbbr());
+        return (value != null) ? String.format(format, value) : "";
     }
 }

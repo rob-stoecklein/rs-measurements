@@ -1,13 +1,13 @@
 package com.github.robstoecklein.measurements.quantities.length;
 
 import com.github.robstoecklein.measurements.units.MathConstants;
-import com.github.robstoecklein.measurements.units.Unit;
+import com.github.robstoecklein.measurements.units.Units;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
  * @version 2023-03-08
  */
-public abstract class LengthUnits extends Unit {
+public abstract class LengthUnits extends Units {
 
     public LengthUnits(String name, String abbr, double scale) {
         super(MEASURE_LENGTH, name, abbr, scale, 0.0);

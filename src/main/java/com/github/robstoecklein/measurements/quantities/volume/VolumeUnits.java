@@ -1,13 +1,13 @@
 package com.github.robstoecklein.measurements.quantities.volume;
 
 import com.github.robstoecklein.measurements.units.MathConstants;
-import com.github.robstoecklein.measurements.units.Unit;
+import com.github.robstoecklein.measurements.units.Units;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
  * @version 2023-03-08
  */
-public class VolumeUnits extends Unit {
+public class VolumeUnits extends Units {
 
     public VolumeUnits(String name, String abbr, double scale) {
         super(MEASURE_VOLUME, name, abbr, scale, 0.0);

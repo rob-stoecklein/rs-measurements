@@ -1,12 +1,12 @@
 package com.github.robstoecklein.measurements.quantities.temperature;
 
-import com.github.robstoecklein.measurements.units.Unit;
+import com.github.robstoecklein.measurements.units.Units;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
  * @version 2023-03-16
  */
-public abstract class TemperatureUnits extends Unit {
+public abstract class TemperatureUnits extends Units {
 
     public TemperatureUnits(String name, String abbr, double scale, double offset) {
         super(MEASURE_TEMPERATURE, name, abbr, scale, offset);

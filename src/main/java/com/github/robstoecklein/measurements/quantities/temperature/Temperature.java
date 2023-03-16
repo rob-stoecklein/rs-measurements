@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  * @version 2023-03-16
  */
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Temperature extends Quantity {
+public class Temperature extends Quantity<Temperature, TemperatureUnits> {
 
     //@formatter:off
     public static final Celsius    CELSIUS    = new Celsius();
@@ -21,9 +21,9 @@ public class Temperature extends Quantity {
     //@formatter:on
 
     //@formatter:off
-    public static Temperature inCelsius   (Number number) { return new Temperature().value(number).units(CELSIUS);    }
-    public static Temperature inFahrenheit(Number number) { return new Temperature().value(number).units(FAHRENHEIT); }
-    public static Temperature inKelvin    (Number number) { return new Temperature().value(number).units(KELVIN);     }
+    public static Temperature inCelsius   (Number value) { return new Temperature().value(value).units(CELSIUS);    }
+    public static Temperature inFahrenheit(Number value) { return new Temperature().value(value).units(FAHRENHEIT); }
+    public static Temperature inKelvin    (Number value) { return new Temperature().value(value).units(KELVIN);     }
     //@formatter:on
 
     //@formatter:off
@@ -39,32 +39,5 @@ public class Temperature extends Quantity {
                 .numDecimalPlaces(getNumDecimalPlaces())
                 .numSignificantDigits(getNumSignificantDigits())
                 .includeUnits(isIncludeUnits());
-    }
-
-    //--- Setters ---
-
-    public Temperature value(Number number) {
-        setValue(number);
-        return this;
-    }
-
-    public Temperature units(TemperatureUnits temperatureUnits) {
-        setUnits(temperatureUnits);
-        return this;
-    }
-
-    public Temperature numDecimalPlaces(Integer numDecimalPlaces) {
-        setNumDecimalPlaces(numDecimalPlaces);
-        return this;
-    }
-
-    public Temperature numSignificantDigits(Integer numSignificantDigits) {
-        setNumSignificantDigits(numSignificantDigits);
-        return this;
-    }
-
-    public Temperature includeUnits(boolean includeUnits) {
-        setIncludeUnits(includeUnits);
-        return this;
     }
 }

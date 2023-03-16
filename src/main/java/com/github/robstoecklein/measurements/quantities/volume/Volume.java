@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  * @version 2023-03-16
  */
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Volume extends Quantity {
+public class Volume extends Quantity<Volume, VolumeUnits> {
 
     //@formatter:off
     // US
@@ -31,14 +31,14 @@ public class Volume extends Quantity {
     //@formatter:on
 
     //@formatter:off
-    public static Volume inFluidOunces(Number number) { return new Volume().value(number).units(FLUID_OUNCES); }
-    public static Volume inCups       (Number number) { return new Volume().value(number).units(CUPS);        }
-    public static Volume inPints      (Number number) { return new Volume().value(number).units(PINTS);       }
-    public static Volume inQuarts     (Number number) { return new Volume().value(number).units(QUARTS);      }
-    public static Volume inGallons    (Number number) { return new Volume().value(number).units(GALLONS);     }
+    public static Volume inFluidOunces(Number value) { return new Volume().value(value).units(FLUID_OUNCES); }
+    public static Volume inCups       (Number value) { return new Volume().value(value).units(CUPS);        }
+    public static Volume inPints      (Number value) { return new Volume().value(value).units(PINTS);       }
+    public static Volume inQuarts     (Number value) { return new Volume().value(value).units(QUARTS);      }
+    public static Volume inGallons    (Number value) { return new Volume().value(value).units(GALLONS);     }
 
-    public static Volume inMilliliters(Number number) { return new Volume().value(number).units(MILLILITERS); }
-    public static Volume inLiters     (Number number) { return new Volume().value(number).units(LITERS);      }
+    public static Volume inMilliliters(Number value) { return new Volume().value(value).units(MILLILITERS); }
+    public static Volume inLiters     (Number value) { return new Volume().value(value).units(LITERS);      }
     //@formatter:on
 
     //@formatter:off
@@ -59,32 +59,5 @@ public class Volume extends Quantity {
                 .numDecimalPlaces(getNumDecimalPlaces())
                 .numSignificantDigits(getNumSignificantDigits())
                 .includeUnits(isIncludeUnits());
-    }
-
-    //--- Setters ---
-
-    public Volume value(Number number) {
-        setValue(number);
-        return this;
-    }
-
-    public Volume units(VolumeUnits volumeUnits) {
-        setUnits(volumeUnits);
-        return this;
-    }
-
-    public Volume numDecimalPlaces(Integer numDecimalPlaces) {
-        setNumDecimalPlaces(numDecimalPlaces);
-        return this;
-    }
-
-    public Volume numSignificantDigits(Integer numSignificantDigits) {
-        setNumSignificantDigits(numSignificantDigits);
-        return this;
-    }
-
-    public Volume includeUnits(boolean includeUnits) {
-        setIncludeUnits(includeUnits);
-        return this;
     }
 }

@@ -1,6 +1,6 @@
 package com.github.robstoecklein.measurements.quantities;
 
-import com.github.robstoecklein.measurements.units.Unit;
+import com.github.robstoecklein.measurements.units.Units;
 import com.github.robstoecklein.measurements.util.Numbr;
 import java.util.Objects;
 import lombok.AccessLevel;
@@ -16,7 +16,8 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public abstract class Quantity {
+@SuppressWarnings({"ParameterHidesMemberVariable", "unchecked"})
+public abstract class Quantity<T, U> {
 
     //--- Value and Units ---
     @Setter
@@ -24,7 +25,7 @@ public abstract class Quantity {
     protected Number value;
     @Setter
     @EqualsAndHashCode.Include
-    protected Unit units;
+    protected Units units;
 
     //--- How the value is displayed ---
     @Setter
@@ -44,10 +45,37 @@ public abstract class Quantity {
         return (value == null);
     }
 
-    //--- Getter methods ---
+    //--- Getters ---
 
     public Number getValue() {
         return roundToStdPrecision(value);
+    }
+
+    //--- Setters ---
+
+    public T value(Number value) {
+        this.value = value;
+        return (T)this;
+    }
+
+    public T units(Units units) {
+        this.units = units;
+        return (T)this;
+    }
+
+    public T numDecimalPlaces(Integer numDecimalPlaces) {
+        this.numDecimalPlaces = numDecimalPlaces;
+        return (T)this;
+    }
+
+    public T numSignificantDigits(Integer numSignificantDigits) {
+        this.numSignificantDigits = numSignificantDigits;
+        return (T)this;
+    }
+
+    public T includeUnits(boolean includeUnits) {
+        this.includeUnits = includeUnits;
+        return (T)this;
     }
 
     //--- getXyz() methods ---

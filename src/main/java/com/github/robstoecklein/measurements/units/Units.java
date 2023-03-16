@@ -6,12 +6,12 @@ import lombok.ToString;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-08
+ * @version 2023-03-16
  */
 @Getter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public abstract class Unit {
+public abstract class Units {
 
     //@formatter:off
     public static final String MEASURE_LENGTH      = "length";
@@ -31,7 +31,7 @@ public abstract class Unit {
     private final Number offset;
     private final boolean isStandard;
 
-    public Unit(String messure, String name, String abbr, Number scale, Number offset) {
+    public Units(String messure, String name, String abbr, Number scale, Number offset) {
         //@formatter:off
         this.measure = messure;
         this.name    = name;
@@ -68,10 +68,10 @@ public abstract class Unit {
      * units must measure the same type of property (temperature, mass, volume, etc.).
      *
      * @param value the value in this unit
-     * @param unit  the target unit to convert to
+     * @param units the target unit to convert to
      */
-    public Number convert(Number value, Unit unit) {
-        if (!unit.measure.equals(measure)) {
+    public Number convert(Number value, Units units) {
+        if (!units.measure.equals(measure)) {
             throw new IllegalArgumentException("Incompatible measure conversion");
         }
 
@@ -79,6 +79,6 @@ public abstract class Unit {
         Number stdVal = toStandard(value);
 
         // Convert the standard value to target units:
-        return unit.fromStandard(stdVal);
+        return units.fromStandard(stdVal);
     }
 }

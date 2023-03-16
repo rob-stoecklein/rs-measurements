@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
  * @version 2023-03-16
  */
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Length extends Quantity {
+public class Length extends Quantity<Length, LengthUnits> {
 
     //@formatter:off
     // US
@@ -41,19 +41,19 @@ public class Length extends Quantity {
     //@formatter:on
 
     //@formatter:off
-    public static Length inInches       (Number number) { return new Length().value(number).units(INCHES);         }
-    public static Length inFeet         (Number number) { return new Length().value(number).units(FEET);           }
-    public static Length inYards        (Number number) { return new Length().value(number).units(YARDS);          }
-    public static Length inMiles        (Number number) { return new Length().value(number).units(MILES);          }
-    public static Length inNauticalMiles(Number number) { return new Length().value(number).units(NAUTICAL_MILES); }
+    public static Length inInches       (Number value) { return new Length().value(value).units(INCHES);         }
+    public static Length inFeet         (Number value) { return new Length().value(value).units(FEET);           }
+    public static Length inYards        (Number value) { return new Length().value(value).units(YARDS);          }
+    public static Length inMiles        (Number value) { return new Length().value(value).units(MILES);          }
+    public static Length inNauticalMiles(Number value) { return new Length().value(value).units(NAUTICAL_MILES); }
 
-    public static Length inNanometers   (Number number) { return new Length().value(number).units(NANOMETERS);  }
-    public static Length inMicrometers  (Number number) { return new Length().value(number).units(MICROMETERS); }
-    public static Length inMillimeters  (Number number) { return new Length().value(number).units(MILLIMETERS); }
-    public static Length inCentimeters  (Number number) { return new Length().value(number).units(CENTIMETERS); }
-    public static Length inDecimeters   (Number number) { return new Length().value(number).units(DECIMETERS);  }
-    public static Length inMeters       (Number number) { return new Length().value(number).units(METERS);      }
-    public static Length inKilometers   (Number number) { return new Length().value(number).units(KILOMETERS);  }
+    public static Length inNanometers   (Number value) { return new Length().value(value).units(NANOMETERS);  }
+    public static Length inMicrometers  (Number value) { return new Length().value(value).units(MICROMETERS); }
+    public static Length inMillimeters  (Number value) { return new Length().value(value).units(MILLIMETERS); }
+    public static Length inCentimeters  (Number value) { return new Length().value(value).units(CENTIMETERS); }
+    public static Length inDecimeters   (Number value) { return new Length().value(value).units(DECIMETERS);  }
+    public static Length inMeters       (Number value) { return new Length().value(value).units(METERS);      }
+    public static Length inKilometers   (Number value) { return new Length().value(value).units(KILOMETERS);  }
     //@formatter:on
 
     //@formatter:off
@@ -79,32 +79,5 @@ public class Length extends Quantity {
                 .numDecimalPlaces(getNumDecimalPlaces())
                 .numSignificantDigits(getNumSignificantDigits())
                 .includeUnits(isIncludeUnits());
-    }
-
-    //--- Setters ---
-
-    public Length value(Number number) {
-        setValue(number);
-        return this;
-    }
-
-    public Length units(LengthUnits lengthUnits) {
-        setUnits(lengthUnits);
-        return this;
-    }
-
-    public Length numDecimalPlaces(Integer numDecimalPlaces) {
-        setNumDecimalPlaces(numDecimalPlaces);
-        return this;
-    }
-
-    public Length numSignificantDigits(Integer numSignificantDigits) {
-        setNumSignificantDigits(numSignificantDigits);
-        return this;
-    }
-
-    public Length includeUnits(boolean includeUnits) {
-        setIncludeUnits(includeUnits);
-        return this;
     }
 }

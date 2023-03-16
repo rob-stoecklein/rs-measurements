@@ -14,43 +14,43 @@ public class VolumeUnits extends Units {
     }
 
     public static class Liters extends VolumeUnits {
-        public Liters() {
+        protected Liters() {
             super("liter", "l", 1.0);
         }
     }
 
     public static class Milliliters extends VolumeUnits {
-        public Milliliters() {
+        protected Milliliters() {
             super("milliliter", "ml", MathConstants.MILLILITERS_PER_LITER);
         }
     }
 
     public static class FluidOunces extends VolumeUnits {
-        public FluidOunces() {
+        protected FluidOunces() {
             super("fluid ounce", "fl oz", MathConstants.OUNCES_PER_LITER);
         }
     }
 
     public static class Cups extends VolumeUnits {
-        public Cups() {
+        protected Cups() {
             super("cup", "c", MathConstants.CUPS_PER_LITER);
         }
     }
 
     public static class Pints extends VolumeUnits {
-        public Pints() {
+        protected Pints() {
             super("pint", "p", MathConstants.PINTS_PER_LITER);
         }
     }
 
     public static class Quarts extends VolumeUnits {
-        public Quarts() {
+        protected Quarts() {
             super("quart", "q", MathConstants.QUARTS_PER_LITER);
         }
     }
 
     public static class Gallons extends VolumeUnits {
-        public Gallons() {
+        protected Gallons() {
             super("gallon", "g", MathConstants.GALLONS_PER_LITER);
         }
     }

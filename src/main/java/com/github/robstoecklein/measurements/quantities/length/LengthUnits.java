@@ -16,31 +16,31 @@ public abstract class LengthUnits extends Units {
     //------ US --------------------------------------------------------------------------------------------------------
 
     public static class Inches extends LengthUnits {
-        public Inches() {
+        protected Inches() {
             super("inches", "in", MathConstants.INCHES_PER_METER);
         }
     }
 
     public static class Feet extends LengthUnits {
-        public Feet() {
+        protected Feet() {
             super("feet", "ft", MathConstants.FEET_PER_METER);
         }
     }
 
     public static class Yards extends LengthUnits {
-        public Yards() {
+        protected Yards() {
             super("yards", "yd", MathConstants.YARDS_PER_METER);
         }
     }
 
     public static class Miles extends LengthUnits {
-        public Miles() {
+        protected Miles() {
             super("miles", "mi", MathConstants.MILES_PER_METER);
         }
     }
 
     public static class NauticalMiles extends LengthUnits {
-        public NauticalMiles() {
+        protected NauticalMiles() {
             super("nautical miles", "nmi", MathConstants.NAUTICAL_MILES_PER_METER);
         }
     }
@@ -48,43 +48,43 @@ public abstract class LengthUnits extends Units {
     //------ SI --------------------------------------------------------------------------------------------------------
 
     public static class Nanometers extends LengthUnits {
-        public Nanometers() {
+        protected Nanometers() {
             super("nanometers", "nm", MathConstants.NUM_NANOS);
         }
     }
 
     public static class Micrometers extends LengthUnits {
-        public Micrometers() {
+        protected Micrometers() {
             super("micrometers", "µm", MathConstants.NUM_MICROS);
         }
     }
 
     public static class Millimeters extends LengthUnits {
-        public Millimeters() {
+        protected Millimeters() {
             super("millimeters", "mm", MathConstants.NUM_MILLIS);
         }
     }
 
     public static class Centimeters extends LengthUnits {
-        public Centimeters() {
+        protected Centimeters() {
             super("centimeters", "cm", MathConstants.NUM_CENTIS);
         }
     }
 
     public static class Decimeters extends LengthUnits {
-        public Decimeters() {
+        protected Decimeters() {
             super("decimeters", "dm", MathConstants.NUM_DECIS);
         }
     }
 
     public static class Meters extends LengthUnits {
-        public Meters() {
+        protected Meters() {
             super("meters", "m", MathConstants.NUM_STD);
         }
     }
 
     public static class Kilometers extends LengthUnits {
-        public Kilometers() {
+        protected Kilometers() {
             super("kilometers", "km", MathConstants.NUM_KILOS);
         }
     }

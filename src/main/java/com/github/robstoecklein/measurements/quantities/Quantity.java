@@ -3,8 +3,10 @@ package com.github.robstoecklein.measurements.quantities;
 import com.github.robstoecklein.measurements.units.Unit;
 import com.github.robstoecklein.measurements.util.Numbr;
 import java.util.Objects;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -13,13 +15,16 @@ import lombok.Setter;
  */
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class Quantity {
 
     //--- Value and Units ---
+    @Setter
     @EqualsAndHashCode.Include
-    protected final Number value;
+    protected Number value;
+    @Setter
     @EqualsAndHashCode.Include
-    protected final Unit units;
+    protected Unit units;
 
     //--- How the value is displayed ---
     @Setter
@@ -29,11 +34,6 @@ public abstract class Quantity {
     @Setter
     private boolean includeUnits;
 
-    protected Quantity(Number value, Unit units) {
-        this.value = roundToStdPrecision(value);
-        this.units = Objects.requireNonNull(units);
-    }
-
     //--- hasValue() methods ---
 
     public boolean hasValue() {
@@ -42,6 +42,12 @@ public abstract class Quantity {
 
     public boolean isNull() {
         return (value == null);
+    }
+
+    //--- Getter methods ---
+
+    public Number getValue() {
+        return roundToStdPrecision(value);
     }
 
     //--- getXyz() methods ---
@@ -59,7 +65,7 @@ public abstract class Quantity {
     }
 
     public Double getDouble() {
-        return hasValue() ? value.doubleValue() : null;
+        return hasValue() ? getValue().doubleValue() : null;
     }
 
     //--- xyzValue() methods ---

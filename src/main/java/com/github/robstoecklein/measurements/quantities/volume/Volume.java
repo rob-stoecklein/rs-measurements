@@ -8,38 +8,37 @@ import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Liter
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Milliliters;
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Pints;
 import com.github.robstoecklein.measurements.quantities.volume.VolumeUnits.Quarts;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
  * @version 2023-03-16
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Volume extends Quantity {
 
     //@formatter:off
     // US
-    private static final FluidOunces FLUID_OUNCES = new FluidOunces();
-    private static final Cups        CUPS         = new Cups();
-    private static final Pints       PINTS        = new Pints();
-    private static final Quarts      QUARTS       = new Quarts();
-    private static final Gallons     GALLONS      = new Gallons();
+    public static final FluidOunces FLUID_OUNCES = new FluidOunces();
+    public static final Cups        CUPS         = new Cups();
+    public static final Pints       PINTS        = new Pints();
+    public static final Quarts      QUARTS       = new Quarts();
+    public static final Gallons     GALLONS      = new Gallons();
     // SI
-    private static final Milliliters MILLILITERS  = new Milliliters();
-    private static final Liters      LITERS       = new Liters();
+    public static final Milliliters MILLILITERS  = new Milliliters();
+    public static final Liters      LITERS       = new Liters();
     //@formatter:on
 
-    public Volume(Number value, VolumeUnits units) {
-        super(value, units);
-    }
-
     //@formatter:off
-    public static Volume inFluidOunces(Number val) { return new Volume(val, FLUID_OUNCES); }
-    public static Volume inCups       (Number val) { return new Volume(val, CUPS);        }
-    public static Volume inPints      (Number val) { return new Volume(val, PINTS);       }
-    public static Volume inQuarts     (Number val) { return new Volume(val, QUARTS);      }
-    public static Volume inGallons    (Number val) { return new Volume(val, GALLONS);     }
+    public static Volume inFluidOunces(Number number) { return new Volume().value(number).units(FLUID_OUNCES); }
+    public static Volume inCups       (Number number) { return new Volume().value(number).units(CUPS);        }
+    public static Volume inPints      (Number number) { return new Volume().value(number).units(PINTS);       }
+    public static Volume inQuarts     (Number number) { return new Volume().value(number).units(QUARTS);      }
+    public static Volume inGallons    (Number number) { return new Volume().value(number).units(GALLONS);     }
 
-    public static Volume inMilliLiters(Number val) { return new Volume(val, MILLILITERS); }
-    public static Volume inLiters     (Number val) { return new Volume(val, LITERS);      }
+    public static Volume inMilliliters(Number number) { return new Volume().value(number).units(MILLILITERS); }
+    public static Volume inLiters     (Number number) { return new Volume().value(number).units(LITERS);      }
     //@formatter:on
 
     //@formatter:off
@@ -53,7 +52,39 @@ public class Volume extends Quantity {
     public Volume toLiters()      { return convert(value, LITERS);      }
     //@formatter:on
 
-    private Volume convert(Number val, VolumeUnits newUnits) {
-        return new Volume(units.convert(val, newUnits), newUnits);
+    private Volume convert(Number number, VolumeUnits newUnits) {
+        return new Volume()
+                .value(units.convert(number, newUnits))
+                .units(newUnits)
+                .numDecimalPlaces(getNumDecimalPlaces())
+                .numSignificantDigits(getNumSignificantDigits())
+                .includeUnits(isIncludeUnits());
+    }
+
+    //--- Setters ---
+
+    public Volume value(Number number) {
+        setValue(number);
+        return this;
+    }
+
+    public Volume units(VolumeUnits volumeUnits) {
+        setUnits(volumeUnits);
+        return this;
+    }
+
+    public Volume numDecimalPlaces(Integer numDecimalPlaces) {
+        setNumDecimalPlaces(numDecimalPlaces);
+        return this;
+    }
+
+    public Volume numSignificantDigits(Integer numSignificantDigits) {
+        setNumSignificantDigits(numSignificantDigits);
+        return this;
+    }
+
+    public Volume includeUnits(boolean includeUnits) {
+        setIncludeUnits(includeUnits);
+        return this;
     }
 }

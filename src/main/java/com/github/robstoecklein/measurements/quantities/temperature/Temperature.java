@@ -4,11 +4,14 @@ import com.github.robstoecklein.measurements.quantities.Quantity;
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Celsius;
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Fahrenheit;
 import com.github.robstoecklein.measurements.quantities.temperature.TemperatureUnits.Kelvin;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
  * @version 2023-03-16
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Temperature extends Quantity {
 
     //@formatter:off
@@ -17,14 +20,10 @@ public class Temperature extends Quantity {
     public static final Kelvin     KELVIN     = new Kelvin();
     //@formatter:on
 
-    public Temperature(Number value, TemperatureUnits units) {
-        super(value, units);
-    }
-
     //@formatter:off
-    public static Temperature inCelsius   (Number val) { return new Temperature(val, CELSIUS);    }
-    public static Temperature inFahrenheit(Number val) { return new Temperature(val, FAHRENHEIT); }
-    public static Temperature inKelvin    (Number val) { return new Temperature(val, KELVIN);     }
+    public static Temperature inCelsius   (Number number) { return new Temperature().value(number).units(CELSIUS);    }
+    public static Temperature inFahrenheit(Number number) { return new Temperature().value(number).units(FAHRENHEIT); }
+    public static Temperature inKelvin    (Number number) { return new Temperature().value(number).units(KELVIN);     }
     //@formatter:on
 
     //@formatter:off
@@ -33,14 +32,26 @@ public class Temperature extends Quantity {
     public Temperature toKelvin()     { return convert(value, KELVIN);     }
     //@formatter:on
 
-    private Temperature convert(Number val, TemperatureUnits newUnits) {
-        return new Temperature(units.convert(val, newUnits), newUnits)
-                .numDecimalPlaces(this.getNumDecimalPlaces())
-                .numSignificantDigits(this.getNumSignificantDigits())
-                .includeUnits(this.isIncludeUnits());
+    private Temperature convert(Number number, TemperatureUnits newUnits) {
+        return new Temperature()
+                .value(units.convert(number, newUnits))
+                .units(newUnits)
+                .numDecimalPlaces(getNumDecimalPlaces())
+                .numSignificantDigits(getNumSignificantDigits())
+                .includeUnits(isIncludeUnits());
     }
 
     //--- Setters ---
+
+    public Temperature value(Number number) {
+        setValue(number);
+        return this;
+    }
+
+    public Temperature units(TemperatureUnits temperatureUnits) {
+        setUnits(temperatureUnits);
+        return this;
+    }
 
     public Temperature numDecimalPlaces(Integer numDecimalPlaces) {
         setNumDecimalPlaces(numDecimalPlaces);

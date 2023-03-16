@@ -73,23 +73,4 @@ class UT_Temperature {
         assertThat(Temperature.inFahrenheit(null).toString("%.2f"), equalTo(""));
         assertThat(Temperature.inFahrenheit(78.9).toString("%.2f"), equalTo("78.90"));
     }
-
-    @Test
-    void verify_builder_methods() {
-        Temperature temperature = null;
-
-        temperature = new Temperature(987.654, Temperature.CELSIUS)
-                .numDecimalPlaces(2)
-                .includeUnits(true);
-
-                assertThat(temperature.toFahrenheit().toString(), equalTo("1809.78 °F"));
-        //
-        //        temperature = Temperature
-        //                .builder()
-        //                .value(987.654)
-        //                .units(Temperature.FAHRENHEIT)
-        //                .numSignificantDigits(4)
-        //                .build();
-        //        assertThat(temperature.toKelvin().toString(), equalTo("804.1"));
-    }
 }

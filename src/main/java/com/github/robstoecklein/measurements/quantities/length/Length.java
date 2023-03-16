@@ -13,48 +13,47 @@ import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Milli
 import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Nanometers;
 import com.github.robstoecklein.measurements.quantities.length.LengthUnits.NauticalMiles;
 import com.github.robstoecklein.measurements.quantities.length.LengthUnits.Yards;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
  * @version 2023-03-16
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Length extends Quantity {
 
     //@formatter:off
     // US
-    private static final Inches        INCHES         = new Inches();
-    private static final Feet          FEET           = new Feet();
-    private static final Yards         YARDS          = new Yards();
-    private static final Miles         MILES          = new Miles();
-    private static final NauticalMiles NAUTICAL_MILES = new NauticalMiles();
+    public static final Inches        INCHES         = new Inches();
+    public static final Feet          FEET           = new Feet();
+    public static final Yards         YARDS          = new Yards();
+    public static final Miles         MILES          = new Miles();
+    public static final NauticalMiles NAUTICAL_MILES = new NauticalMiles();
     // SI
-    private static final Nanometers    NANOMETERS     = new Nanometers();
-    private static final Micrometers   MICROMETERS    = new Micrometers();
-    private static final Millimeters   MILLIMETERS    = new Millimeters();
-    private static final Centimeters   CENTIMETERS    = new Centimeters();
-    private static final Decimeters    DECIMETERS     = new Decimeters();
-    private static final Meters        METERS         = new Meters();
-    private static final Kilometers    KILOMETERS     = new Kilometers();
+    public static final Nanometers    NANOMETERS     = new Nanometers();
+    public static final Micrometers   MICROMETERS    = new Micrometers();
+    public static final Millimeters   MILLIMETERS    = new Millimeters();
+    public static final Centimeters   CENTIMETERS    = new Centimeters();
+    public static final Decimeters    DECIMETERS     = new Decimeters();
+    public static final Meters        METERS         = new Meters();
+    public static final Kilometers    KILOMETERS     = new Kilometers();
     //@formatter:on
 
-    public Length(Number value, LengthUnits units) {
-        super(value, units);
-    }
-
     //@formatter:off
-    public static Length inInches       (Number val) { return new Length(val, INCHES);        }
-    public static Length inFeet         (Number val) { return new Length(val, FEET);          }
-    public static Length inYards        (Number val) { return new Length(val, YARDS);         }
-    public static Length inMiles        (Number val) { return new Length(val, MILES);         }
-    public static Length inNauticalMiles(Number val) { return new Length(val, NAUTICAL_MILES); }
+    public static Length inInches       (Number number) { return new Length().value(number).units(INCHES);         }
+    public static Length inFeet         (Number number) { return new Length().value(number).units(FEET);           }
+    public static Length inYards        (Number number) { return new Length().value(number).units(YARDS);          }
+    public static Length inMiles        (Number number) { return new Length().value(number).units(MILES);          }
+    public static Length inNauticalMiles(Number number) { return new Length().value(number).units(NAUTICAL_MILES); }
 
-    public static Length inNanometers   (Number val) { return new Length(val, NANOMETERS);  }
-    public static Length inMicrometers  (Number val) { return new Length(val, MICROMETERS); }
-    public static Length inMillimeters  (Number val) { return new Length(val, MILLIMETERS); }
-    public static Length inCentimeters  (Number val) { return new Length(val, CENTIMETERS); }
-    public static Length inDecimeters   (Number val) { return new Length(val, DECIMETERS);  }
-    public static Length inMeters       (Number val) { return new Length(val, METERS);      }
-    public static Length inKilometers   (Number val) { return new Length(val, KILOMETERS);  }
+    public static Length inNanometers   (Number number) { return new Length().value(number).units(NANOMETERS);  }
+    public static Length inMicrometers  (Number number) { return new Length().value(number).units(MICROMETERS); }
+    public static Length inMillimeters  (Number number) { return new Length().value(number).units(MILLIMETERS); }
+    public static Length inCentimeters  (Number number) { return new Length().value(number).units(CENTIMETERS); }
+    public static Length inDecimeters   (Number number) { return new Length().value(number).units(DECIMETERS);  }
+    public static Length inMeters       (Number number) { return new Length().value(number).units(METERS);      }
+    public static Length inKilometers   (Number number) { return new Length().value(number).units(KILOMETERS);  }
     //@formatter:on
 
     //@formatter:off
@@ -73,7 +72,39 @@ public class Length extends Quantity {
     public Length toKilometers()    { return convert(value, KILOMETERS);  }
     //@formatter:on
 
-    private Length convert(Number val, LengthUnits newUnits) {
-        return new Length(units.convert(val, newUnits), newUnits);
+    private Length convert(Number number, LengthUnits newUnits) {
+        return new Length()
+                .value(units.convert(number, newUnits))
+                .units(newUnits)
+                .numDecimalPlaces(getNumDecimalPlaces())
+                .numSignificantDigits(getNumSignificantDigits())
+                .includeUnits(isIncludeUnits());
+    }
+
+    //--- Setters ---
+
+    public Length value(Number number) {
+        setValue(number);
+        return this;
+    }
+
+    public Length units(LengthUnits lengthUnits) {
+        setUnits(lengthUnits);
+        return this;
+    }
+
+    public Length numDecimalPlaces(Integer numDecimalPlaces) {
+        setNumDecimalPlaces(numDecimalPlaces);
+        return this;
+    }
+
+    public Length numSignificantDigits(Integer numSignificantDigits) {
+        setNumSignificantDigits(numSignificantDigits);
+        return this;
+    }
+
+    public Length includeUnits(boolean includeUnits) {
+        setIncludeUnits(includeUnits);
+        return this;
     }
 }

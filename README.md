@@ -98,7 +98,7 @@ class UT_Length {
         // Retrieve string result:
         assertThat(length.toFeet().numDecimalPlaces(3).toString(), equalTo("40.354"));
         assertThat(length.toFeet().numSignificantDigits(6).toString(), equalTo("40.3543"));
-        assertThat(length.toFeet().numDecimalPlaces(2).includeUnits(true).toString(), equalTo("40.35 ft"));
+        assertThat(length.toFeet().numDecimalPlaces(1).includeUnits(true).toString(), equalTo("40.4 ft"));
     }
 }
 ```

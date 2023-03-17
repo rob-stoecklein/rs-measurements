@@ -6,7 +6,7 @@ import lombok.ToString;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-16
+ * @version 2023-03-17
  */
 @Getter
 @ToString
@@ -14,12 +14,24 @@ import lombok.ToString;
 public abstract class Units {
 
     //@formatter:off
-    public static final String MEASURE_LENGTH      = "length";
-    public static final String MEASURE_MASS        = "mass";
-    public static final String MEASURE_PRESSURE    = "pressure";
-    public static final String MEASURE_TEMPERATURE = "temperature";
-    public static final String MEASURE_TIME        = "time";
-    public static final String MEASURE_VOLUME      = "volume";
+    public static final String MEASURE_ANGLE            = "angle";
+    public static final String MEASURE_AREA             = "area";
+    public static final String MEASURE_CURRENT          = "electrical-current";
+    public static final String MEASURE_DIGITAL          = "digital";
+    public static final String MEASURE_ENERGY           = "energy";
+    public static final String MEASURE_FORCE            = "force";
+    public static final String MEASURE_FREQUENCY        = "frequency";
+    public static final String MEASURE_FUEL_CONSUMPTION = "fuel-consumption";
+    public static final String MEASURE_LENGTH           = "length";
+    public static final String MEASURE_MASS             = "mass";
+    public static final String MEASURE_POWER            = "power";
+    public static final String MEASURE_PRESSURE         = "pressure";
+    public static final String MEASURE_RESISTANCE       = "resistance";
+    public static final String MEASURE_SPEED            = "speed";
+    public static final String MEASURE_TEMPERATURE      = "temperature";
+    public static final String MEASURE_TIME             = "time";
+    public static final String MEASURE_VOLTAGE          = "voltage";
+    public static final String MEASURE_VOLUME           = "volume";
     //@formatter:on
 
     @EqualsAndHashCode.Include

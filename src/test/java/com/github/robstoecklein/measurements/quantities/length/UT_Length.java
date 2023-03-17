@@ -8,6 +8,37 @@ import org.junit.jupiter.api.Test;
 class UT_Length {
 
     @Test
+    void verify_assortment() {
+        Length length = Length.inMeters(12.3);
+
+        // Convert to different units:
+        assertThat(length.toInches().getValue(), equalTo(484.251968503937));
+        assertThat(length.toFeet().getValue(), equalTo(40.3543307086614));
+        assertThat(length.toMillimeters().getValue(), equalTo(12300.0));
+
+        // Retrieve integer result:
+        assertThat(length.toInches().intValue(), equalTo(484));
+        assertThat(length.toInches().getInteger(), equalTo(484));
+
+        // Retrieve long result:
+        assertThat(length.toInches().longValue(), equalTo(484L));
+        assertThat(length.toInches().getLong(), equalTo(484L));
+
+        // Retrieve float result:
+        assertThat(length.toInches().floatValue(), equalTo(484.25198F));
+        assertThat(length.toInches().getFloat(), equalTo(484.25198F));
+
+        // Retrieve double result:
+        assertThat(length.toInches().doubleValue(), equalTo(484.251968503937));
+        assertThat(length.toInches().getDouble(), equalTo(484.251968503937));
+
+        // Retrieve string result:
+        assertThat(length.toFeet().numDecimalPlaces(3).toString(), equalTo("40.354"));
+        assertThat(length.toFeet().numSignificantDigits(6).toString(), equalTo("40.3543"));
+        assertThat(length.toFeet().numDecimalPlaces(2).includeUnits(true).toString(), equalTo("40.35 ft"));
+    }
+
+    @Test
     void verify_conversion_constants() {
         final Length length = Length.inMeters(1.0);
         //@formatter:off

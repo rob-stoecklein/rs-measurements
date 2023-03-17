@@ -29,4 +29,10 @@ public abstract class TemperatureUnits extends Units {
             super("Kelvin", "°K", 1.0, 273.15);
         }
     }
+
+    public static class Rankine extends TemperatureUnits {
+        protected Rankine() {
+            super("Rankine", "°R", 1.8, 491.67);
+        }
+    }
 }

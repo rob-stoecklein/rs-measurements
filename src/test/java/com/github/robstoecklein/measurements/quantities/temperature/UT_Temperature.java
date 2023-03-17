@@ -14,6 +14,7 @@ class UT_Temperature {
         assertThat(temperature.toCelsius()   .getValue(), equalTo(100.00));
         assertThat(temperature.toFahrenheit().getValue(), equalTo(212.00));
         assertThat(temperature.toKelvin()    .getValue(), equalTo(373.15));
+        assertThat(temperature.toRankine()   .getValue(), equalTo(671.67));
         //@formatter:on
     }
 
@@ -54,11 +55,25 @@ class UT_Temperature {
     }
 
     @Test
+    void verify_inRankine_method() {
+        //@formatter:off
+        assertThat(Temperature.inRankine( null).toCelsius()   .getValue(), equalTo(   null));
+        assertThat(Temperature.inRankine(  0.0).toCelsius()   .getValue(), equalTo(-273.15));
+        assertThat(Temperature.inRankine(  0.0).toFahrenheit().getValue(), equalTo(-459.67));
+        assertThat(Temperature.inRankine(  0.0).toKelvin()    .getValue(), equalTo(   0.00));
+        assertThat(Temperature.inRankine(678.9).toCelsius()   .getValue(), equalTo( 104.016666666667));
+        assertThat(Temperature.inRankine(678.9).toFahrenheit().getValue(), equalTo( 219.23));
+        assertThat(Temperature.inRankine( 99.9).toKelvin()    .getValue(), equalTo(  55.50));
+        //@formatter:on
+    }
+
+    @Test
     void verify_getAbbr_method() {
         //@formatter:off
         assertThat(Temperature.inCelsius   (12.34).getAbbr(), equalTo("°C"));
         assertThat(Temperature.inFahrenheit(12.34).getAbbr(), equalTo("°F"));
         assertThat(Temperature.inKelvin    (12.34).getAbbr(), equalTo("°K"));
+        assertThat(Temperature.inRankine   (12.34).getAbbr(), equalTo("°R"));
         //@formatter:on
     }
 

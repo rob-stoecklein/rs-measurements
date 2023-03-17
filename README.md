@@ -110,4 +110,4 @@ class UT_Length {
 }
 ```
 
-The size of the JAR file is 43K.
+The size of the JAR file is 43K, and it has no other dependencies.

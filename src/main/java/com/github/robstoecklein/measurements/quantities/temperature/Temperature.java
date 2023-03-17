@@ -33,11 +33,6 @@ public class Temperature extends Quantity<Temperature, TemperatureUnits> {
     //@formatter:on
 
     private Temperature convert(Number number, TemperatureUnits newUnits) {
-        return new Temperature()
-                .value(units.convert(number, newUnits))
-                .units(newUnits)
-                .numDecimalPlaces(getNumDecimalPlaces())
-                .numSignificantDigits(getNumSignificantDigits())
-                .includeUnits(isIncludeUnits());
+        return convert(new Temperature(), number, newUnits);
     }
 }

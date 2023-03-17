@@ -17,7 +17,7 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @SuppressWarnings({"ParameterHidesMemberVariable", "unchecked"})
-public abstract class Quantity<T, U> {
+public abstract class Quantity<T extends Quantity, U extends Units> {
 
     //--- Value and Units ---
     @Setter
@@ -142,11 +142,21 @@ public abstract class Quantity<T, U> {
         return units.getAbbr();
     }
 
+    //--- Conversion method ---
+
+    protected T convert(T quantity, Number number, U newUnits) {
+        return (T)quantity
+                .value(units.convert(number, newUnits))
+                .units(newUnits)
+                .numDecimalPlaces(numDecimalPlaces)
+                .numSignificantDigits(numSignificantDigits)
+                .includeUnits(includeUnits);
+    }
+
     //--- toString() methods ---
 
     @Override
     public String toString() {
-
         Double dValue = null;
         dValue = roundToNumDecimalPlaces(value, numDecimalPlaces);
         if (dValue == null) {

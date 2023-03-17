@@ -8,6 +8,16 @@ import org.junit.jupiter.api.Test;
 class UT_Temperature {
 
     @Test
+    void verify_conversion_constants() {
+        final Temperature temperature = Temperature.inCelsius(100.0);
+        //@formatter:off
+        assertThat(temperature.toCelsius()   .getValue(), equalTo(100.00));
+        assertThat(temperature.toFahrenheit().getValue(), equalTo(212.00));
+        assertThat(temperature.toKelvin()    .getValue(), equalTo(373.15));
+        //@formatter:on
+    }
+
+    @Test
     void verify_inFahrenheit_method() {
         //@formatter:off
         assertThat(Temperature.inFahrenheit( null).toCelsius()   .getValue(), equalTo(  null));

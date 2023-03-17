@@ -5,7 +5,7 @@ import com.github.robstoecklein.measurements.units.Units;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-08
+ * @version 2023-03-17
  */
 public class VolumeUnits extends Units {
 
@@ -13,17 +13,7 @@ public class VolumeUnits extends Units {
         super(MEASURE_VOLUME, name, abbr, scale, 0.0);
     }
 
-    public static class Liters extends VolumeUnits {
-        protected Liters() {
-            super("liter", "l", 1.0);
-        }
-    }
-
-    public static class Milliliters extends VolumeUnits {
-        protected Milliliters() {
-            super("milliliter", "ml", MathConstants.MILLILITERS_PER_LITER);
-        }
-    }
+    //------ US --------------------------------------------------------------------------------------------------------
 
     public static class FluidOunces extends VolumeUnits {
         protected FluidOunces() {
@@ -52,6 +42,20 @@ public class VolumeUnits extends Units {
     public static class Gallons extends VolumeUnits {
         protected Gallons() {
             super("gallon", "g", MathConstants.GALLONS_PER_LITER);
+        }
+    }
+
+    //------ SI --------------------------------------------------------------------------------------------------------
+
+    public static class Milliliters extends VolumeUnits {
+        protected Milliliters() {
+            super("milliliter", "ml", MathConstants.MILLILITERS_PER_LITER);
+        }
+    }
+
+    public static class Liters extends VolumeUnits {
+        protected Liters() {
+            super("liter", "l", MathConstants.NUM_STD);  // STANDARD
         }
     }
 }

@@ -79,7 +79,7 @@ public abstract class LengthUnits extends Units {
 
     public static class Meters extends LengthUnits {
         protected Meters() {
-            super("meters", "m", MathConstants.NUM_STD);
+            super("meters", "m", MathConstants.NUM_STD);  // STANDARD
         }
     }
 

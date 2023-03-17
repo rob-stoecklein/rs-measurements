@@ -8,6 +8,20 @@ import org.junit.jupiter.api.Test;
 class UT_Volume {
 
     @Test
+    void verify_conversion_constants() {
+        final Volume volume = Volume.inLiters(1.0);
+        //@formatter:off
+        assertThat(volume.toFluidOunces().getValue(), equalTo(33.81402));
+        assertThat(volume.toCups()       .getValue(), equalTo( 4.2267525));
+        assertThat(volume.toPints()      .getValue(), equalTo( 2.11337625));
+        assertThat(volume.toQuarts()     .getValue(), equalTo( 1.056688125));
+        assertThat(volume.toGallons()    .getValue(), equalTo( 0.26417203125));
+        assertThat(volume.toLiters()     .getValue(), equalTo( 1.0e+00));
+        assertThat(volume.toMilliLiters().getValue(), equalTo( 1.0e+03));
+        //@formatter:on
+    }
+
+    @Test
     void verify_inLiters_method() {
         //@formatter:off
         assertThat(Volume.inLiters( null).toLiters()     .getValue(), equalTo(  null));

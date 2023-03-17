@@ -14,7 +14,7 @@ public abstract class TemperatureUnits extends Units {
 
     public static class Celsius extends TemperatureUnits {
         protected Celsius() {
-            super("Celsius", "°C", 1.0, 0.0);
+            super("Celsius", "°C", 1.0, 0.0);  // STANDARD
         }
     }
 

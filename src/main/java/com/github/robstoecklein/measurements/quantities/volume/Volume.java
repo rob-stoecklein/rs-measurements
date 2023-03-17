@@ -31,33 +31,30 @@ public class Volume extends Quantity<Volume, VolumeUnits> {
     //@formatter:on
 
     //@formatter:off
+    // US
     public static Volume inFluidOunces(Number value) { return new Volume().value(value).units(FLUID_OUNCES); }
-    public static Volume inCups       (Number value) { return new Volume().value(value).units(CUPS);        }
-    public static Volume inPints      (Number value) { return new Volume().value(value).units(PINTS);       }
-    public static Volume inQuarts     (Number value) { return new Volume().value(value).units(QUARTS);      }
-    public static Volume inGallons    (Number value) { return new Volume().value(value).units(GALLONS);     }
-
-    public static Volume inMilliliters(Number value) { return new Volume().value(value).units(MILLILITERS); }
-    public static Volume inLiters     (Number value) { return new Volume().value(value).units(LITERS);      }
+    public static Volume inCups       (Number value) { return new Volume().value(value).units(CUPS);         }
+    public static Volume inPints      (Number value) { return new Volume().value(value).units(PINTS);        }
+    public static Volume inQuarts     (Number value) { return new Volume().value(value).units(QUARTS);       }
+    public static Volume inGallons    (Number value) { return new Volume().value(value).units(GALLONS);      }
+    // SI
+    public static Volume inMilliliters(Number value) { return new Volume().value(value).units(MILLILITERS);  }
+    public static Volume inLiters     (Number value) { return new Volume().value(value).units(LITERS);       }
     //@formatter:on
 
     //@formatter:off
+    // US
     public Volume toFluidOunces() { return convert(value, FLUID_OUNCES); }
-    public Volume toCups()        { return convert(value, CUPS);        }
-    public Volume toPints()       { return convert(value, PINTS);       }
-    public Volume toQuarts()      { return convert(value, QUARTS);      }
-    public Volume toGallons()     { return convert(value, GALLONS);     }
-
-    public Volume toMilliLiters() { return convert(value, MILLILITERS); }
-    public Volume toLiters()      { return convert(value, LITERS);      }
+    public Volume toCups()        { return convert(value, CUPS);         }
+    public Volume toPints()       { return convert(value, PINTS);        }
+    public Volume toQuarts()      { return convert(value, QUARTS);       }
+    public Volume toGallons()     { return convert(value, GALLONS);      }
+    // SI
+    public Volume toMilliLiters() { return convert(value, MILLILITERS);  }
+    public Volume toLiters()      { return convert(value, LITERS);       }
     //@formatter:on
 
     private Volume convert(Number number, VolumeUnits newUnits) {
-        return new Volume()
-                .value(units.convert(number, newUnits))
-                .units(newUnits)
-                .numDecimalPlaces(getNumDecimalPlaces())
-                .numSignificantDigits(getNumSignificantDigits())
-                .includeUnits(isIncludeUnits());
+        return convert(new Volume(), number, newUnits);
     }
 }

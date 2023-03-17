@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
  * https://en.wikipedia.org/wiki/International_System_of_Units
  *
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-08
+ * @version 2023-03-17
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MathConstants {
 
-    // EXPONENT
+    //--- EXPONENT ---
     //@formatter:off
     public static final double NUM_QUETTAS = 1.0e-30;
     public static final double NUM_RONNAS  = 1.0e-27;
@@ -44,7 +44,18 @@ public final class MathConstants {
     public static final double NUM_QUECTO  = 1.0e+30;
     //@formatter:on
 
-    // LENGTH
+    //--- ANGLES ---
+    //@formatter:off
+    public static final double DEGREES_PER_RADIAN  = 180.0 / Math.PI;
+    public static final double RADIANS_PER_DEGREES = 1 / DEGREES_PER_RADIAN;
+    //@formatter:on
+
+    //--- AREA ---
+    //@formatter:off
+    public static final double ACRES_PER_SQ_MILE = 640.0;
+    //@formatter:on
+
+    //--- LENGTH ---
     //@formatter:off
     public static final double INCHES_PER_FOOT  = 12.0;
     public static final double INCHES_PER_YARD  = 36.0;
@@ -74,7 +85,28 @@ public final class MathConstants {
     public static final double NAUTICAL_MILES_PER_METER  = 0.0005399568;
     //@formatter:on
 
-    // VOLUME
+    //--- MASS/WEIGHT ---
+    //@formatter:off
+    public static final double CARATS_PER_KILOGRAM      = 5.0e+03;
+
+    public static final double GRAMS_PER_KILOGRAM       = 1.0e+03;
+    public static final double GRAMS_PER_OUNCE          = 28.349523125;
+
+    public static final double KILOGRAMS_PER_CARAT      = 1 / CARATS_PER_KILOGRAM;
+    public static final double KILOGRAMS_PER_GRAM       = 1.0e-03;
+    public static final double KILOGRAMS_PER_METRIC_TON = 1.0e+03;
+
+    public static final double OUNCES_PER_GRAM     = 1 / GRAMS_PER_OUNCE;
+    public static final double OUNCES_PER_KILOGRAM = OUNCES_PER_GRAM * GRAMS_PER_KILOGRAM;
+    public static final double OUNCES_PER_POUND    = 16.0;
+
+    public static final double POUNDS_PER_KILOGRAM = OUNCES_PER_KILOGRAM / OUNCES_PER_POUND;
+    public static final double POUNDS_PER_TON      = 2000.0;
+
+    public static final double TONS_PER_KILOGRAM = POUNDS_PER_KILOGRAM / POUNDS_PER_TON;
+    //@formatter:on
+
+    //--- VOLUME ---
     //@formatter:off
     public static final double OUNCES_PER_CUP        =   8.0;
     public static final double OUNCES_PER_PINT       =  16.0;

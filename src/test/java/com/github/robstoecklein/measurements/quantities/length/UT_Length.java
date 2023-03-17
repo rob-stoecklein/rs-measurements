@@ -8,6 +8,25 @@ import org.junit.jupiter.api.Test;
 class UT_Length {
 
     @Test
+    void verify_conversion_constants() {
+        final Length length = Length.inMeters(1.0);
+        //@formatter:off
+        assertThat(length.toInches()       .getValue(), equalTo(39.3700787401575));
+        assertThat(length.toFeet()         .getValue(), equalTo( 3.28083989501312));
+        assertThat(length.toYards()        .getValue(), equalTo( 1.09361329833771));
+        assertThat(length.toMiles()        .getValue(), equalTo( 6.21371192237334E-4));
+        assertThat(length.toNauticalMiles().getValue(), equalTo( 5.399568E-4));
+        assertThat(length.toNanometers()   .getValue(), equalTo( 1.0e+09));
+        assertThat(length.toMicrometers()  .getValue(), equalTo( 1.0e+06));
+        assertThat(length.toMillimeters()  .getValue(), equalTo( 1.0e+03));
+        assertThat(length.toCentimeters()  .getValue(), equalTo( 1.0e+02));
+        assertThat(length.toDecimeters()   .getValue(), equalTo( 1.0e+01));
+        assertThat(length.toMeters()       .getValue(), equalTo( 1.0e+00));
+        assertThat(length.toKilometers()   .getValue(), equalTo( 1.0e-03));
+        //@formatter:on
+    }
+
+    @Test
     void verify_inInches_method() {
         //@formatter:off
         assertThat(Length.inInches(  null).toInches().getValue(), equalTo(null));

@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-16
+ * @version 2023-03-17
  */
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Length extends Quantity<Length, LengthUnits> {
@@ -41,43 +41,40 @@ public class Length extends Quantity<Length, LengthUnits> {
     //@formatter:on
 
     //@formatter:off
+    // US
     public static Length inInches       (Number value) { return new Length().value(value).units(INCHES);         }
     public static Length inFeet         (Number value) { return new Length().value(value).units(FEET);           }
     public static Length inYards        (Number value) { return new Length().value(value).units(YARDS);          }
     public static Length inMiles        (Number value) { return new Length().value(value).units(MILES);          }
     public static Length inNauticalMiles(Number value) { return new Length().value(value).units(NAUTICAL_MILES); }
-
-    public static Length inNanometers   (Number value) { return new Length().value(value).units(NANOMETERS);  }
-    public static Length inMicrometers  (Number value) { return new Length().value(value).units(MICROMETERS); }
-    public static Length inMillimeters  (Number value) { return new Length().value(value).units(MILLIMETERS); }
-    public static Length inCentimeters  (Number value) { return new Length().value(value).units(CENTIMETERS); }
-    public static Length inDecimeters   (Number value) { return new Length().value(value).units(DECIMETERS);  }
-    public static Length inMeters       (Number value) { return new Length().value(value).units(METERS);      }
-    public static Length inKilometers   (Number value) { return new Length().value(value).units(KILOMETERS);  }
+    // SI
+    public static Length inNanometers   (Number value) { return new Length().value(value).units(NANOMETERS);     }
+    public static Length inMicrometers  (Number value) { return new Length().value(value).units(MICROMETERS);    }
+    public static Length inMillimeters  (Number value) { return new Length().value(value).units(MILLIMETERS);    }
+    public static Length inCentimeters  (Number value) { return new Length().value(value).units(CENTIMETERS);    }
+    public static Length inDecimeters   (Number value) { return new Length().value(value).units(DECIMETERS);     }
+    public static Length inMeters       (Number value) { return new Length().value(value).units(METERS);         }
+    public static Length inKilometers   (Number value) { return new Length().value(value).units(KILOMETERS);     }
     //@formatter:on
 
     //@formatter:off
-    public Length toInches()        { return convert(value, INCHES); }
-    public Length toFeet()          { return convert(value, FEET);   }
-    public Length toYards()         { return convert(value, YARDS);  }
-    public Length toMiles()         { return convert(value, MILES);  }
-    public Length toNauticalMiles() { return convert(value, MILES);  }
-
-    public Length toNanometers()    { return convert(value, NANOMETERS);  }
-    public Length toMicrometers()   { return convert(value, MICROMETERS); }
-    public Length toMillimeters()   { return convert(value, MILLIMETERS); }
-    public Length toCentimeters()   { return convert(value, CENTIMETERS); }
-    public Length toDecimeters()    { return convert(value, DECIMETERS);  }
-    public Length toMeters()        { return convert(value, METERS);      }
-    public Length toKilometers()    { return convert(value, KILOMETERS);  }
+    // US
+    public Length toInches()        { return convert(value, INCHES);         }
+    public Length toFeet()          { return convert(value, FEET);           }
+    public Length toYards()         { return convert(value, YARDS);          }
+    public Length toMiles()         { return convert(value, MILES);          }
+    public Length toNauticalMiles() { return convert(value, NAUTICAL_MILES); }
+    // SI
+    public Length toNanometers()    { return convert(value, NANOMETERS);     }
+    public Length toMicrometers()   { return convert(value, MICROMETERS);    }
+    public Length toMillimeters()   { return convert(value, MILLIMETERS);    }
+    public Length toCentimeters()   { return convert(value, CENTIMETERS);    }
+    public Length toDecimeters()    { return convert(value, DECIMETERS);     }
+    public Length toMeters()        { return convert(value, METERS);         }
+    public Length toKilometers()    { return convert(value, KILOMETERS);     }
     //@formatter:on
 
-    private Length convert(Number number, LengthUnits newUnits) {
-        return new Length()
-                .value(units.convert(number, newUnits))
-                .units(newUnits)
-                .numDecimalPlaces(getNumDecimalPlaces())
-                .numSignificantDigits(getNumSignificantDigits())
-                .includeUnits(isIncludeUnits());
+    protected Length convert(Number number, LengthUnits newUnits) {
+        return convert(new Length(), number, newUnits);
     }
 }

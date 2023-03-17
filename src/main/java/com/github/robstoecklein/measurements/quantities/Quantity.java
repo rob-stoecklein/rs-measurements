@@ -166,7 +166,7 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
             }
         }
 
-        String result = null;
+        String result = "";
         if (dValue != null) {
             result = String.format("%s", dValue);
         }

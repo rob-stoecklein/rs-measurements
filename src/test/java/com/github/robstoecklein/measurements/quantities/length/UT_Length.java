@@ -36,6 +36,13 @@ class UT_Length {
         assertThat(length.toFeet().numDecimalPlaces(3).toString(), equalTo("40.354"));
         assertThat(length.toFeet().numSignificantDigits(6).toString(), equalTo("40.3543"));
         assertThat(length.toFeet().numDecimalPlaces(1).includeUnits(true).toString(), equalTo("40.4 ft"));
+
+        // Nulls are handled:
+        assertThat(Length.inMeters(null).toInches().getValue(), equalTo(null));
+        assertThat(Length.inMeters(null).toFeet().numSignificantDigits(2).toString(), equalTo(""));
+
+        // Custom formatting:
+        assertThat(length.toFeet().toString("%e feet"), equalTo("4.035433e+01 feet"));
     }
 
     @Test

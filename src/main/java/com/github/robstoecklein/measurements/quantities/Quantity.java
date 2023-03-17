@@ -19,6 +19,14 @@ import lombok.Setter;
 @SuppressWarnings({"ParameterHidesMemberVariable", "unchecked"})
 public abstract class Quantity<T extends Quantity, U extends Units> {
 
+    //--- Default values ---
+    @Getter @Setter
+    private static Integer defaultNumDecimalPlaces;
+    @Getter @Setter
+    private static Integer defaultNumSignificantDigits;
+    @Getter @Setter
+    private static boolean defaultIncludeUnits;
+
     //--- Value and Units ---
     @Setter
     @EqualsAndHashCode.Include
@@ -29,11 +37,11 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
 
     //--- How the value is displayed ---
     @Setter
-    private Integer numDecimalPlaces;
+    private Integer numDecimalPlaces = defaultNumDecimalPlaces;
     @Setter
-    private Integer numSignificantDigits;
+    private Integer numSignificantDigits = defaultNumSignificantDigits;
     @Setter
-    private boolean includeUnits;
+    private boolean includeUnits = defaultIncludeUnits;
 
     //--- hasValue() methods ---
 
@@ -136,12 +144,6 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
         return result;
     }
 
-    //--- Convenience "units" methods ---
-
-    public String getAbbr() {
-        return units.getAbbr();
-    }
-
     //--- Conversion method ---
 
     protected T convert(T quantity, Number number, U newUnits) {
@@ -171,7 +173,7 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
             result = String.format("%s", dValue);
         }
         if ((result != null) && includeUnits) {
-            result = String.format("%s %s", result, getAbbr());
+            result = String.format("%s %s", result, units.getAbbr());
         }
         return result;
     }

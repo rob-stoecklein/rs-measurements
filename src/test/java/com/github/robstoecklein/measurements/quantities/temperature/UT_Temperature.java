@@ -68,16 +68,6 @@ class UT_Temperature {
     }
 
     @Test
-    void verify_getAbbr_method() {
-        //@formatter:off
-        assertThat(Temperature.inCelsius   (12.34).getAbbr(), equalTo("°C"));
-        assertThat(Temperature.inFahrenheit(12.34).getAbbr(), equalTo("°F"));
-        assertThat(Temperature.inKelvin    (12.34).getAbbr(), equalTo("°K"));
-        assertThat(Temperature.inRankine   (12.34).getAbbr(), equalTo("°R"));
-        //@formatter:on
-    }
-
-    @Test
     void verify_toString_method() {
         final Temperature temperature = Temperature.inFahrenheit(123.456789);
         assertThat(temperature.toString(), equalTo("123.456789"));

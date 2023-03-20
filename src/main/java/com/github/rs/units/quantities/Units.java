@@ -6,7 +6,7 @@ import lombok.ToString;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-17
+ * @version 2023-03-20
  */
 @Getter
 @ToString
@@ -17,7 +17,7 @@ public abstract class Units {
     public static final String MEASURE_ANGLE            = "angle";
     public static final String MEASURE_AREA             = "area";
     public static final String MEASURE_CURRENT          = "electrical-current";
-    public static final String MEASURE_DIGITAL          = "digital";
+    public static final String MEASURE_DIGITAL_STORAGE  = "digital-storage";
     public static final String MEASURE_ENERGY           = "energy";
     public static final String MEASURE_FORCE            = "force";
     public static final String MEASURE_FREQUENCY        = "frequency";

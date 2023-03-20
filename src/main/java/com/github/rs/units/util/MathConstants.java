@@ -139,7 +139,7 @@ public final class MathConstants {
     public static final double TABLESPOONS_US_PER_CUPS_US_CUST = 16.0;
     public static final double TEASPOONS_US_PER_TABLESPOON_US  =  3.0;
 
-    public static final double LITERS_PER_OUNCE_US      =  0.0295735295625;
+    public static final double LITERS_PER_OUNCE_US      =   0.0295735295625;
     public static final double LITERS_PER_TABLESPOON_US =  67.62804;
     public static final double LITERS_PER_TEASPOON_US   = 202.8841;
     //@formatter:on

@@ -44,6 +44,7 @@ public class DigitalStorageUnits extends Units {
     public static final double EXABYTES_PER_BYTE   = 1 / BYTES_PER_EXABYTE;                  // 1.0e-18
     public static final double ZETABYTES_PER_BYTE  = 1 / BYTES_PER_ZETABYTE;                 // 1.0e-21
     public static final double YOTTABYTES_PER_BYTE = 1 / BYTES_PER_YOTTABYTE;                // 1.0e-24
+    ///public static final BigInteger ROBERTO  = new BigInteger("1208925819614629174706176");
 
     public static final double KIBIBYTES_PER_BYTE  = 1 / BYTES_PER_KIBIBYTE;                 // 9.765625e-4
     public static final double MEBIBYTES_PER_BYTE  = 1 / BYTES_PER_MEBIBYTE;
@@ -55,7 +56,7 @@ public class DigitalStorageUnits extends Units {
 
     //------------------------------------------------------------------------------------------------------------------
 
-    public DigitalStorageUnits(String name, String abbr, double scale) {
+    public DigitalStorageUnits(String name, String abbr, Number scale) {
         super(MEASURE_DIGITAL_STORAGE, name, abbr, scale, 0.0);
     }
 

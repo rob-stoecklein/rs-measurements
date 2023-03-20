@@ -9,7 +9,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class VolumeUnits extends Units {
 
-    public VolumeUnits(String name, String abbr, double scale) {
+    public VolumeUnits(String name, String abbr, Number scale) {
         super(MEASURE_VOLUME, name, abbr, scale, 0.0);
     }
 

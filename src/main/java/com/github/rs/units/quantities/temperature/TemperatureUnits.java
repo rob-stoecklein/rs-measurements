@@ -9,7 +9,7 @@ import com.github.rs.units.quantities.Units;
  */
 public abstract class TemperatureUnits extends Units {
 
-    public TemperatureUnits(String name, String abbr, double scale, double offset) {
+    public TemperatureUnits(String name, String abbr, Number scale, double offset) {
         super(MEASURE_TEMPERATURE, name, abbr, scale, offset);
     }
 

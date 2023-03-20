@@ -9,7 +9,7 @@ import com.github.rs.units.quantities.Units;
  */
 public abstract class LengthUnits extends Units {
 
-    public LengthUnits(String name, String abbr, double scale) {
+    public LengthUnits(String name, String abbr, Number scale) {
         super(MEASURE_LENGTH, name, abbr, scale, 0.0);
     }
 

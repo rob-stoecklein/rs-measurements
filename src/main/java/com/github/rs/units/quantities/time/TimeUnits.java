@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public abstract class TimeUnits extends Units {
 
-    public TimeUnits(String name, String abbr, double scale, double offset) {
+    public TimeUnits(String name, String abbr, Number scale, double offset) {
         super(MEASURE_TIME, name, abbr, scale, offset);
     }
 }

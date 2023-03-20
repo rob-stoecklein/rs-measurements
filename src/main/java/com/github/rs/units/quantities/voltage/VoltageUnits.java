@@ -9,7 +9,7 @@ import com.github.rs.units.util.MathConstants;
  */
 public class VoltageUnits extends Units {
 
-    public VoltageUnits(String name, String abbr, double scale) {
+    public VoltageUnits(String name, String abbr, Number scale) {
         super(MEASURE_VOLTAGE, name, abbr, scale, 0.0);
     }
 

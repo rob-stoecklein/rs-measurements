@@ -1,6 +1,7 @@
 package com.github.rs.units.quantities;
 
 import com.github.rs.units.util.Numbr;
+import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -103,6 +104,10 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
         return hasValue() ? getValue().doubleValue() : null;
     }
 
+    public BigDecimal getBigDecimal() {
+        return hasValue() ? BigDecimal.valueOf(getValue().doubleValue()) : null;
+    }
+
     //--- xyzValue() methods ---
 
     public int intValue() {
@@ -123,11 +128,11 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
 
     //--- roundTo() methods ---
 
-    public static Double roundToStdPrecision(Number value) {
+    public static Number roundToStdPrecision(Number value) {
         return (value != null) ? Numbr.roundToStdPrecision(value.doubleValue()) : null;
     }
 
-    public static Double roundToNumDecimalPlaces(Number value, Integer numDecimalPlaces) {
+    public static Number roundToNumDecimalPlaces(Number value, Integer numDecimalPlaces) {
         Double result = null;
         if ((value != null) && (numDecimalPlaces != null)) {
             result = Numbr.roundToNumDecimalPlaces(value.doubleValue(), numDecimalPlaces);
@@ -135,7 +140,7 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
         return result;
     }
 
-    public static Double roundToPrecision(Number value, Integer numSignificantDigits) {
+    public static Number roundToPrecision(Number value, Integer numSignificantDigits) {
         Double result = null;
         if ((value != null) && (numSignificantDigits != null)) {
             result = Numbr.roundToPrecision(value.doubleValue(), numSignificantDigits);
@@ -158,18 +163,17 @@ public abstract class Quantity<T extends Quantity, U extends Units> {
 
     @Override
     public String toString() {
-        Double dValue = null;
-        dValue = roundToNumDecimalPlaces(value, numDecimalPlaces);
-        if (dValue == null) {
-            dValue = roundToPrecision(value, numSignificantDigits);
-            if (dValue == null) {
-                dValue = roundToStdPrecision(value);
+        Number number = null;
+        number = roundToNumDecimalPlaces(value, numDecimalPlaces);
+        if (number == null) {
+            number = roundToPrecision(value, numSignificantDigits);
+            if (number == null) {
+                number = roundToStdPrecision(value);
             }
         }
-
         String result = "";
-        if (dValue != null) {
-            result = String.format("%s", dValue);
+        if (number != null) {
+            result = String.format("%s", number);
         }
         if ((result != null) && includeUnits) {
             result = String.format("%s %s", result, units.getAbbr());

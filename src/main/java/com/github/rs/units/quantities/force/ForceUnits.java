@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class ForceUnits extends Units {
 
-    public ForceUnits(String name, String abbr, double scale) {
+    public ForceUnits(String name, String abbr, Number scale) {
         super(MEASURE_FORCE, name, abbr, scale, 0.0);
     }
 }

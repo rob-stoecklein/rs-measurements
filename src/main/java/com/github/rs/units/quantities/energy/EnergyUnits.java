@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class EnergyUnits extends Units {
 
-    public EnergyUnits(String name, String abbr, double scale) {
+    public EnergyUnits(String name, String abbr, Number scale) {
         super(MEASURE_ENERGY, name, abbr, scale, 0.0);
     }
 }

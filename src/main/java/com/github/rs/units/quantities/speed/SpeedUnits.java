@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class SpeedUnits extends Units {
 
-    public SpeedUnits(String name, String abbr, double scale) {
+    public SpeedUnits(String name, String abbr, Number scale) {
         super(MEASURE_SPEED, name, abbr, scale, 0.0);
     }
 }

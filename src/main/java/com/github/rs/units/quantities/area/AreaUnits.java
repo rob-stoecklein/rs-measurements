@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class AreaUnits extends Units {
 
-    public AreaUnits(String name, String abbr, double scale) {
+    public AreaUnits(String name, String abbr, Number scale) {
         super(MEASURE_AREA, name, abbr, scale, 0.0);
     }
 }

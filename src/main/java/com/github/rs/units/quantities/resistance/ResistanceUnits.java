@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class ResistanceUnits extends Units {
 
-    public ResistanceUnits(String name, String abbr, double scale) {
+    public ResistanceUnits(String name, String abbr, Number scale) {
         super(MEASURE_RESISTANCE, name, abbr, scale, 0.0);
     }
 }

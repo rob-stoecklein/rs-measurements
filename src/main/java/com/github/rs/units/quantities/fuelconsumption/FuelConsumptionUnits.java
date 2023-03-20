@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class FuelConsumptionUnits extends Units {
 
-    public FuelConsumptionUnits(String name, String abbr, double scale) {
+    public FuelConsumptionUnits(String name, String abbr, Number scale) {
         super(MEASURE_FUEL_CONSUMPTION, name, abbr, scale, 0.0);
     }
 }

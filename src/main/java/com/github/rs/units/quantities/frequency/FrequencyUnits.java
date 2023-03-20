@@ -9,7 +9,7 @@ import com.github.rs.units.quantities.Units;
  */
 public abstract class FrequencyUnits extends Units {
 
-    public FrequencyUnits(String name, String abbr, double scale) {
+    public FrequencyUnits(String name, String abbr, Number scale) {
         super(MEASURE_FREQUENCY, name, abbr, scale, 0.0);
     }
 

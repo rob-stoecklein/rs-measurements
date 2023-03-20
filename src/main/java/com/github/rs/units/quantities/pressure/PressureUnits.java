@@ -8,7 +8,7 @@ import com.github.rs.units.quantities.Units;
  */
 public abstract class PressureUnits extends Units {
 
-    public PressureUnits(String name, String abbr, double scale) {
+    public PressureUnits(String name, String abbr, Number scale) {
         super(MEASURE_PRESSURE, name, abbr, scale, 0.0);
     }
 }

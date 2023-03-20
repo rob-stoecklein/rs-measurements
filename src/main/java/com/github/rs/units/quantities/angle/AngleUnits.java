@@ -9,7 +9,7 @@ import com.github.rs.units.quantities.Units;
  */
 public class AngleUnits extends Units {
 
-    public AngleUnits(String name, String abbr, double scale) {
+    public AngleUnits(String name, String abbr, Number scale) {
         super(MEASURE_ANGLE, name, abbr, scale, 0.0);
     }
 

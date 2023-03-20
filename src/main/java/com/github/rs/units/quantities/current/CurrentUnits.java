@@ -9,7 +9,7 @@ import com.github.rs.units.util.MathConstants;
  */
 public class CurrentUnits extends Units {
 
-    public CurrentUnits(String name, String abbr, double scale) {
+    public CurrentUnits(String name, String abbr, Number scale) {
         super(MEASURE_CURRENT, name, abbr, scale, 0.0);
     }
 

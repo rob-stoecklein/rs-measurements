@@ -1,6 +1,5 @@
 package com.github.rs.units.quantities;
 
-import com.github.rs.units.units.Units;
 import com.github.rs.units.util.Numbr;
 import java.util.Objects;
 import lombok.AccessLevel;

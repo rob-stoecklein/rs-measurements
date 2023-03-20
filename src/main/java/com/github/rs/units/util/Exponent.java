@@ -1,4 +1,4 @@
-package com.github.rs.units.units;
+package com.github.rs.units.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

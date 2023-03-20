@@ -1,4 +1,4 @@
-package com.github.rs.units.units;
+package com.github.rs.units.quantities;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

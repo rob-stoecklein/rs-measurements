@@ -1,7 +1,7 @@
 package com.github.rs.units.quantities.length;
 
-import com.github.rs.units.units.MathConstants;
-import com.github.rs.units.units.Units;
+import com.github.rs.units.util.MathConstants;
+import com.github.rs.units.quantities.Units;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)

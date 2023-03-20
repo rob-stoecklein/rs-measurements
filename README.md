@@ -1,4 +1,4 @@
-# rs-measurements (v0.0.1)
+# rs-units (v0.1.0)
 
 Have you ever run across code like this?
 

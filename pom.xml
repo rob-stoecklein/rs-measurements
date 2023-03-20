@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    @project: com.github.rob-stoecklein:rs-measurements
-    @bucket:  git@github.com:rob-stoecklein/rs-measurements.git
+    @project: com.github.rob-stoecklein:rs-units
+    @bucket:  git@github.com:rob-stoecklein/rs-units.git
     @author:  Rob Stoecklein
-    @version: 2023-03-08
+    @version: 2023-03-20
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -13,8 +13,8 @@
     <!-- ====== Basics =============================================================== -->
 
     <groupId>com.github.rob-stoecklein</groupId>
-    <artifactId>rs-measurements</artifactId>
-    <version>0.0.1</version>
+    <artifactId>rs-units</artifactId>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
     <name>Java Measurement Quantities and Units</name>
 

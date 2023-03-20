@@ -1,10 +1,11 @@
 package com.github.rs.units.quantities.temperature;
 
+import com.github.rs.units.units.MathConstants;
 import com.github.rs.units.units.Units;
 
 /**
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-16
+ * @version 2023-03-20
  */
 public abstract class TemperatureUnits extends Units {
 
@@ -14,7 +15,7 @@ public abstract class TemperatureUnits extends Units {
 
     public static class Celsius extends TemperatureUnits {
         protected Celsius() {
-            super("Celsius", "°C", 1.0, 0.0);  // STANDARD
+            super("Celsius", "°C", MathConstants.NUM_STD, 0.0);  // STANDARD
         }
     }
 

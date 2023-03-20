@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  * https://en.wikipedia.org/wiki/International_System_of_Units
  *
  * @author Rob Stoecklein (rstoeck@gmail.com)
- * @version 2023-03-17
+ * @version 2023-03-20
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MathConstants {
@@ -46,8 +46,21 @@ public final class MathConstants {
 
     //--- ANGLES ---
     //@formatter:off
+    public static final double ARC_MINUTES_PER_DEGREE       = 60.0;
+    public static final double ARC_SECONDS_PER_DEGREE       = 3.6e+03;
+    public static final double MILLI_ARC_SECONDS_PER_DEGREE = 3.6e+06;
+    public static final double MICRO_ARC_SECONDS_PER_DEGREE = 3.6e+09;
+
     public static final double DEGREES_PER_RADIAN  = 180.0 / Math.PI;
-    public static final double RADIANS_PER_DEGREES = 1 / DEGREES_PER_RADIAN;
+    public static final double RADIANS_PER_DEGREE = 1 / DEGREES_PER_RADIAN;
+    public static final double MILLI_RADIANS_PER_DEGREE = RADIANS_PER_DEGREE * NUM_MILLIS;
+    public static final double MICRO_RADIANS_PER_DEGREE = RADIANS_PER_DEGREE * NUM_MICROS;
+
+    public static final double DEGREES_PER_GRADIAN = 0.9;
+    public static final double GRADIANS_PER_DEGREE = 1 / DEGREES_PER_GRADIAN;
+
+    public static final double DEGREES_PER_REVOLUTION = 360.0;
+    public static final double REVOLUTIONS_PER_DEGREE = 1 / DEGREES_PER_REVOLUTION;
     //@formatter:on
 
     //--- AREA ---
